@@ -1,0 +1,13 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 16
+font-style = Medium
+theme = tokyonight_moon
+window-padding-x = 8
+window-padding-y = 8
+mouse-hide-while-typing
+unfocused-split-opacity = 1
+
+keybind = super+shift+h=goto_split:left
+keybind = super+shift+j=goto_split:bottom
+keybind = super+shift+k=goto_split:top
+keybind = super+shift+l=goto_split:right
