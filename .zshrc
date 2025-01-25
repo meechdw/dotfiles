@@ -34,6 +34,7 @@ eval "$(starship init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/src/dev-tools/bin:$PATH"
+export PATH="$HOME/src/infrastructure/bin:$PATH"
 
 export GOPRIVATE="bitbucket.org/wieckmedia/*"
 
