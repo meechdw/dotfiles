@@ -1,4 +1,4 @@
-font-family = JetBrainsMono Nerd Font Mono
+font-family = BlexMono Nerd Font
 font-size = 16
 font-style = Medium
 theme = tokyonight_moon
@@ -6,6 +6,7 @@ window-padding-x = 8
 window-padding-y = 8
 mouse-hide-while-typing
 unfocused-split-opacity = 1
+adjust-cell-height = 1
 
 keybind = super+shift+h=goto_split:left
 keybind = super+shift+j=goto_split:bottom
