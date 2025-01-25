@@ -10,11 +10,14 @@ return {
   },
   opts = {
     files = {
+      rg_opts = "--files --hidden --glob '!.git/**'",
       file_icons = false,
       git_icons = false,
     },
     grep = {
       rg_opts = "--line-number --column --no-heading --color=always --smart-case --hidden --glob '!.git/**'",
+      file_icons = false,
+      git_icons = false,
     },
   },
 }
