@@ -10,8 +10,10 @@ return {
     { "<leader>fw", "<cmd>FzfLua diagnostics_workspace<cr>" },
   },
   opts = {
+    "telescope",
     files = {
       rg_opts = "--files --hidden --glob '!**/.git/**'",
+      winopts = { preview = { hidden = true } },
       git_icons = false,
     },
     grep = {
