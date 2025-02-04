@@ -35,6 +35,8 @@ return {
       hl.FloatBorder = { bg = palette.bg0, fg = palette.bg5 }
       hl.FzfLuaBackdrop = { bg = palette.bg0 }
       hl.FzfLuaBorder = { fg = palette.grey0 }
+      hl.BlinkCmpLabelDetail = { fg = palette.grey0 }
+      hl.BlinkCmpLabelDescription = { fg = palette.grey0 }
     end,
   },
   config = function(_, opts)
