@@ -1,5 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   keys = {
     { "<leader>ff", "<cmd>FzfLua files<cr>" },
     { "<leader>fg", "<cmd>FzfLua live_grep<cr>" },
@@ -10,13 +11,11 @@ return {
   },
   opts = {
     files = {
-      rg_opts = "--files --hidden --glob '!.git/**'",
-      file_icons = false,
+      rg_opts = "--files --hidden --glob '!**/.git/**'",
       git_icons = false,
     },
     grep = {
-      rg_opts = "--line-number --column --no-heading --color=always --smart-case --hidden --glob '!.git/**'",
-      file_icons = false,
+      rg_opts = "--line-number --column --no-heading --color=always --smart-case --hidden --glob '!**/.git/**'",
       git_icons = false,
     },
   },

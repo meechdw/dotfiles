@@ -8,7 +8,7 @@ $directory$git_branch$character
 
 [directory]
 truncate_to_repo = false
-style = "cyan"
+style = "blue"
 
 [git_branch]
 format = "[on](white) [$branch]($style) "

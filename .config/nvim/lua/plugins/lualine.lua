@@ -15,7 +15,7 @@ return {
       end
     end
 
-    local theme = require("lualine.themes.tokyonight")
+    local theme = require("lualine.themes.everforest")
     local bg = theme.normal.c.bg
 
     theme.normal.a.fg = theme.normal.a.bg
@@ -31,6 +31,9 @@ return {
     theme.visual.a.fg = theme.visual.a.bg
     theme.visual.a.bg = bg
 
+    theme.normal.c.bg = bg
+    theme.insert.c.bg = bg
+
     require("lualine").setup({
       options = {
         theme = theme,
@@ -39,7 +42,7 @@ return {
       },
       sections = {
         lualine_a = {
-          { "mode" },
+          { "mode", color = { gui = "" } },
         },
         lualine_b = {},
         lualine_c = {

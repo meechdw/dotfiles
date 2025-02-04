@@ -15,6 +15,7 @@ vim.opt.cmdheight = 0
 
 vim.diagnostic.config({
   float = { border = "rounded" },
+  signs = false,
 })
 
 require("config.lazy")
