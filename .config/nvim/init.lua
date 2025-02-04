@@ -14,8 +14,11 @@ vim.opt.scrolloff = 7
 vim.opt.cmdheight = 0
 
 vim.diagnostic.config({
-  float = { border = "rounded" },
   signs = false,
+  float = {
+    border = "rounded",
+    max_width = 100,
+  },
 })
 
 require("config.lazy")

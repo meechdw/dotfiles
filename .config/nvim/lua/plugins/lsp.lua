@@ -40,11 +40,14 @@ return {
       local base_config = {
         capabilities = require("blink.cmp").get_lsp_capabilities(),
         handlers = {
-          ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-          ["textDocument/signatureHelp"] = vim.lsp.with(
-            vim.lsp.handlers.signature_help,
-            { border = "rounded" }
-          ),
+          ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = "rounded",
+            max_width = 100,
+          }),
+          ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+            border = "rounded",
+            max_width = 100,
+          }),
         },
       }
 
