@@ -21,6 +21,16 @@ config.inactive_pane_hsb = {
 
 config.keys = {
   {
+    key = "f",
+    mods = "CMD|CTRL",
+    action = action.ToggleFullScreen,
+  },
+  {
+    key = "n",
+    mods = "CMD|SHIFT",
+    action = action.ActivateWindowRelative(1),
+  },
+  {
     key = "k",
     mods = "CMD",
     action = action.Multiple({
