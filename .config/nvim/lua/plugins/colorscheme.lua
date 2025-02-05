@@ -5,6 +5,7 @@ return {
   opts = {
     background = "hard",
     ui_contrast = "high",
+    transparent_background_level = 2,
     colours_override = function(palette)
       palette.bg_dim = "#14191b"
       palette.bg0 = "#1b2024"
@@ -30,10 +31,9 @@ return {
       palette.statusline3 = "#ea7a7c"
     end,
     on_highlights = function(hl, palette)
-      hl.WinSeparator = { fg = palette.bg5 }
-      hl.NormalFloat = { bg = palette.bg0 }
-      hl.FloatBorder = { bg = palette.bg0, fg = palette.bg5 }
-      hl.FzfLuaBackdrop = { bg = palette.bg0 }
+      hl.StatusLine = { bg = palette.bg0 }
+      hl.NormalFloat = { bg = "NONE" }
+      hl.FloatBorder = { bg = "NONE", fg = palette.bg5 }
       hl.FzfLuaBorder = { fg = palette.grey0 }
       hl.BlinkCmpLabelDetail = { fg = palette.grey0 }
       hl.BlinkCmpLabelDescription = { fg = palette.grey0 }

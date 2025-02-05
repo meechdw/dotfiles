@@ -7,7 +7,8 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("BlexMono Nerd Font", { weight = "Medium" })
 config.font_size = 16
 config.freetype_load_target = "Light"
-config.native_macos_fullscreen_mode = true
+config.window_background_opacity = 0.92
+config.macos_window_background_blur = 8
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 
