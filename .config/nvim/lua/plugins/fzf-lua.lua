@@ -11,14 +11,16 @@ return {
   },
   opts = {
     "telescope",
+    git_icons = false,
     files = {
       rg_opts = "--files --hidden --glob '!**/.git/**'",
       winopts = { preview = { hidden = true } },
-      git_icons = false,
+    },
+    buffers = {
+      winopts = { preview = { hidden = true } },
     },
     grep = {
       rg_opts = "--line-number --column --no-heading --color=always --smart-case --hidden --glob '!**/.git/**'",
-      git_icons = false,
     },
   },
 }
