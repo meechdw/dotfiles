@@ -28,14 +28,9 @@ vim.keymap.set("n", "dn", vim.diagnostic.goto_next)
 vim.keymap.set("n", "dp", vim.diagnostic.goto_next)
 
 vim.keymap.set("n", "<leader>w", function()
-  local cur_buf = vim.api.nvim_get_current_buf()
-  local alt_buf = vim.fn.bufnr("#")
-
-  if alt_buf ~= -1 then
-    vim.cmd.buffer(alt_buf)
+  if vim.bo.buftype ~= "" then
+    vim.api.nvim_command("bd")
   else
-    vim.cmd("enew")
+    vim.api.nvim_command("bp|sp|bn|bd")
   end
-
-  vim.cmd("bdelete " .. cur_buf)
 end, opts)
