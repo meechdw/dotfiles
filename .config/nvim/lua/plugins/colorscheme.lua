@@ -42,5 +42,6 @@ return {
   config = function(_, opts)
     require("everforest").setup(opts)
     vim.cmd("colorscheme everforest")
+    vim.g.terminal_color_7 = "#788775"
   end,
 }
