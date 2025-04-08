@@ -28,9 +28,5 @@ vim.keymap.set("n", "dn", vim.diagnostic.goto_next)
 vim.keymap.set("n", "dp", vim.diagnostic.goto_next)
 
 vim.keymap.set("n", "<leader>w", function()
-  if vim.bo.buftype ~= "" then
-    vim.api.nvim_command("bd")
-  else
-    vim.api.nvim_command("bp|sp|bn|bd")
-  end
+  vim.api.nvim_command("bp|sp|bn|bd")
 end, opts)
