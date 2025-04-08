@@ -10,6 +10,7 @@ config.freetype_load_target = "Light"
 config.native_macos_fullscreen_mode = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
+config.audible_bell = "Disabled"
 
 config.color_scheme = "everforest"
 config.colors = { split = "#384441" }
