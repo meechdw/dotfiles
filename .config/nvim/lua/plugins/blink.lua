@@ -11,7 +11,9 @@ return {
           module = "render-markdown.integ.blink",
         },
       },
-      cmdline = { min_keyword_length = 2 },
+    },
+    cmdline = {
+      enabled = false,
     },
     signature = { enabled = true },
   },
