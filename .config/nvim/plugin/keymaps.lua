@@ -30,3 +30,8 @@ vim.keymap.set("n", "dp", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>w", function()
   vim.api.nvim_command("bp|sp|bn|bd")
 end, opts)
+
+vim.keymap.set("n", "<leader>h", function()
+  local enabled = not vim.lsp.inlay_hint.is_enabled({})
+  vim.lsp.inlay_hint.enable(enabled)
+end, opts)
