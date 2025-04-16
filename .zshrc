@@ -1,9 +1,8 @@
 alias cd="z"
 alias vi="nvim"
 alias vim="nvim"
-alias ls="ls --color"
+alias cat="bat"
 alias lf="ls --color=never -a | fzf"
-alias lg="lazygit"
 
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -23,8 +22,8 @@ zinit ice depth=1; zinit light zsh-users/zsh-autosuggestions
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 HISTFILE=$HOME/.zhistory
-SAVEHIST=1000
-HISTSIZE=999
+SAVEHIST=5000
+HISTSIZE=4999
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 
