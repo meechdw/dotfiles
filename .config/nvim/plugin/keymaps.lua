@@ -23,11 +23,25 @@ vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
 
-vim.keymap.set("n", "do", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "dn", vim.diagnostic.goto_next)
 vim.keymap.set("n", "dp", vim.diagnostic.goto_next)
 
+vim.keymap.set("n", "do", function()
+  vim.diagnostic.open_float()
+  vim.diagnostic.open_float()
+end, opts)
+
 vim.keymap.set("n", "<leader>w", function()
+  if vim.api.nvim_win_get_config(0).relative ~= "" then
+    vim.api.nvim_win_close(0, true)
+    return
+  end
+
+  if vim.bo.buftype == "terminal" then
+    vim.cmd("bd!")
+    return
+  end
+
   vim.api.nvim_command("bp|sp|bn|bd")
 end, opts)
 
