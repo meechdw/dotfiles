@@ -12,8 +12,8 @@ config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.audible_bell = "Disabled"
 
-config.color_scheme = "everforest"
-config.colors = { split = "#384441" }
+config.color_scheme = "Tokyo Night Moon"
+config.colors = { split = "#3b4261" }
 
 config.inactive_pane_hsb = {
   saturation = 1,

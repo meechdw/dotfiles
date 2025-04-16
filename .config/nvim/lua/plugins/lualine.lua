@@ -3,7 +3,7 @@ return {
   config = function()
     local function get_lsp_status()
       local bufnr = vim.api.nvim_get_current_buf()
-      local clients = vim.lsp.buf_get_clients(bufnr)
+      local clients = vim.lsp.get_clients(bufnr)
       local filtered_clients = vim.tbl_filter(function(client)
         return client.name ~= "GitHub Copilot"
       end, clients)
@@ -15,7 +15,7 @@ return {
       end
     end
 
-    local theme = require("lualine.themes.everforest")
+    local theme = require("lualine.themes.tokyonight")
     local bg = theme.normal.c.bg
 
     theme.normal.a.fg = theme.normal.a.bg
@@ -30,9 +30,8 @@ return {
     theme.replace.a.bg = bg
     theme.visual.a.fg = theme.visual.a.bg
     theme.visual.a.bg = bg
-
-    theme.normal.c.bg = bg
-    theme.insert.c.bg = bg
+    theme.terminal.a.fg = theme.terminal.a.bg
+    theme.terminal.a.bg = bg
 
     require("lualine").setup({
       options = {
@@ -41,9 +40,6 @@ return {
         section_separators = "",
       },
       sections = {
-        lualine_a = {
-          { "mode", color = { gui = "" } },
-        },
         lualine_b = {},
         lualine_c = {
           { "filename", path = 1 },
