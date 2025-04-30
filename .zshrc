@@ -1,7 +1,6 @@
 alias cd="z"
 alias vi="nvim"
 alias vim="nvim"
-alias cat="bat"
 alias lf="ls --color=never -a | fzf"
 
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
