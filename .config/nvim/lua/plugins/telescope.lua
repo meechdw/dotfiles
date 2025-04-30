@@ -32,6 +32,7 @@ return {
     extensions = { fzf = {} },
     pickers = {
       find_files = {
+        previewer = false,
         find_command = {
           "rg",
           "--files",
