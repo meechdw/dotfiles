@@ -16,5 +16,11 @@ return {
     mappings = {
       suggestion = { accept = "<M-\\>" },
     },
+    windows = {
+      sidebar_header = { enabled = false },
+    },
+    selector = {
+      provider = "telescope",
+    },
   },
 }
