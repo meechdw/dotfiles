@@ -11,6 +11,7 @@ vim.keymap.set("v", ">", ">gv", opts)
 vim.keymap.set({ "n", "v" }, "J", "<C-d>zz", opts)
 vim.keymap.set({ "n", "v" }, "K", "<C-u>zz", opts)
 
+vim.keymap.set("n", "<leader>tn", "<cmd>tab new<cr>", opts)
 vim.keymap.set("n", "<leader>ts", "<cmd>tab split<cr>", opts)
 vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<cr>", opts)
 
