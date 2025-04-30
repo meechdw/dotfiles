@@ -12,6 +12,7 @@ vim.opt.cursorline = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 7
 vim.opt.cmdheight = 0
+vim.opt.laststatus = 3
 
 vim.diagnostic.config({
   virtual_text = true,
