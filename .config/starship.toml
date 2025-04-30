@@ -8,10 +8,10 @@ $directory$git_branch$character
 
 [directory]
 truncate_to_repo = false
-style = "blue"
+style = "yellow"
 
 [git_branch]
-format = "[on](white) [$branch](yellow) "
+format = "[branch](white) [$branch](blue) "
 symbol = ""
 
 [character]
