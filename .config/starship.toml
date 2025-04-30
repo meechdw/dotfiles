@@ -11,10 +11,9 @@ truncate_to_repo = false
 style = "blue"
 
 [git_branch]
-format = "[on](white) [$branch]($style) "
+format = "[on](white) [$branch](yellow) "
 symbol = ""
-style = "green"
 
 [character]
-success_symbol = "[#](red)"
-error_symbol = "[#](red)"
+success_symbol = "[#](purple)"
+error_symbol = "[#](purple)"

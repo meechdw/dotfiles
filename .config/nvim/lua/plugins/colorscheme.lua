@@ -1,25 +1,48 @@
 return {
-  "folke/tokyonight.nvim",
+  "Mofiqul/dracula.nvim",
   lazy = false,
   priority = 1000,
   opts = {
-    styles = {
-      comments = { italic = false },
-      keywords = { italic = false },
-      sidebars = "transparent",
-      floats = "transparent",
+    colors = {
+      bg = "#1a1a1a",
+      fg = "#d8dee9",
+      selection = "#292929",
+      comment = "#6d6d6d",
+      red = "#ff6464",
+      orange = "#eeb080",
+      yellow = "#ebc88e",
+      green = "#83d6c5",
+      purple = "#a99cf5",
+      cyan = "#87c3ff",
+      pink = "#e394dc",
+      bright_red = "#ff6464",
+      bright_green = "#83d6c5",
+      bright_yellow = "#ebc88e",
+      bright_blue = "#87c3ff",
+      bright_magenta = "#a99cf5",
+      bright_cyan = "#87c3ff",
+      bright_white = "#d8dee9",
+      menu = "#1a1a1a",
+      visual = "#303030",
+      gutter_fg = "#505050",
+      nontext = "#505050",
+      white = "#d8dee9",
+      black = "#141414",
     },
-    on_highlights = function(highlights, colors)
-      highlights.LineNrAbove = { fg = colors.comment }
-      highlights.LineNrBelow = { fg = colors.comment }
-      highlights.CursorLineNr = { fg = colors.fg }
-      highlights.WinSeparator = { fg = colors.fg_gutter }
-      highlights.AvanteSidebarWinSeparator = { fg = colors.fg_gutter }
-      highlights.BlinkCmpMenu = { bg = colors.bg_dark }
+    overrides = function(colors)
+      return {
+        CursorLineNr = { bold = false },
+        WinSeparator = { fg = colors.gutter_fg },
+        AvanteSidebarWinSeparator = { fg = colors.gutter_fg },
+        FloatBorder = { fg = colors.comment },
+        IblIndent = { fg = "#353535" },
+      }
     end,
   },
   config = function(_, opts)
-    require("tokyonight").setup(opts)
-    vim.cmd("colorscheme tokyonight")
+    require("dracula").setup(opts)
+    vim.cmd("colorscheme dracula")
+    vim.g.terminal_color_4 = "#87c3ff"
+    vim.g.terminal_color_7 = "#9a9dab"
   end,
 }
