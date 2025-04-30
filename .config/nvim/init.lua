@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.zig_fmt_autosave = false
+vim.opt.winborder = "rounded"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
