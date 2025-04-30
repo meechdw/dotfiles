@@ -4,7 +4,7 @@ local plugin = wezterm.plugin
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("BlexMono Nerd Font", { weight = "Medium" })
+config.font = wezterm.font("SFMono Nerd Font", { weight = "Medium" })
 config.font_size = 16
 config.freetype_load_target = "Light"
 config.native_macos_fullscreen_mode = true
@@ -12,7 +12,7 @@ config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.audible_bell = "Disabled"
 
-config.color_scheme = "cursor"
+config.color_scheme = "lunar"
 
 config.inactive_pane_hsb = {
   saturation = 1,

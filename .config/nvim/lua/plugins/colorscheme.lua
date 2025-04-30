@@ -1,48 +1,32 @@
 return {
-  "Mofiqul/dracula.nvim",
+  "LunarVim/lunar.nvim",
   lazy = false,
   priority = 1000,
-  opts = {
-    colors = {
-      bg = "#1a1a1a",
-      fg = "#d8dee9",
-      selection = "#292929",
-      comment = "#6d6d6d",
-      red = "#ff6464",
-      orange = "#83d6c5",
-      yellow = "#ebc88e",
-      green = "#eeb080",
-      purple = "#a99cf5",
-      cyan = "#87c3ff",
-      pink = "#e394dc",
-      bright_red = "#ff6464",
-      bright_green = "#eeb080",
-      bright_yellow = "#ebc88e",
-      bright_blue = "#87c3ff",
-      bright_magenta = "#a99cf5",
-      bright_cyan = "#87c3ff",
-      bright_white = "#d8dee9",
-      menu = "#1a1a1a",
-      visual = "#303030",
-      gutter_fg = "#505050",
-      nontext = "#505050",
-      white = "#d8dee9",
-      black = "#141414",
-    },
-    overrides = function(colors)
-      return {
-        CursorLineNr = { bold = false },
-        WinSeparator = { fg = colors.gutter_fg },
-        AvanteSidebarWinSeparator = { fg = colors.gutter_fg },
-        FloatBorder = { fg = colors.comment },
-        IblIndent = { fg = "#353535" },
-      }
-    end,
-  },
-  config = function(_, opts)
-    require("dracula").setup(opts)
-    vim.cmd("colorscheme dracula")
-    vim.g.terminal_color_4 = "#87c3ff"
-    vim.g.terminal_color_7 = "#9a9dab"
+  config = function()
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      pattern = "lunar",
+      callback = function()
+        vim.api.nvim_set_hl(0, "Visual", { bg = "#31374e" })
+        vim.api.nvim_set_hl(0, "Comment", { fg = "#6874a1", italic = true })
+        vim.api.nvim_set_hl(0, "LineNr", { fg = "#5e6a97" })
+        vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#8e97b8" })
+        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#323952" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1a1b26" })
+        vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#1a1b26", fg = "#3d59a1" })
+        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#1a1b26" })
+        vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "#31374e", fg = "#f7768e" })
+        vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#31374e" })
+        vim.api.nvim_set_hl(0, "BlinkCmpLabelDetail", { fg = "#8e97b8" })
+        vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = "#8e97b8" })
+        vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1a1b26", fg = "#3d59a1" })
+        vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#5e6a97" })
+        vim.api.nvim_set_hl(0, "AvanteSidebarWinSeparator", { fg = "#5e6a97" })
+        vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#1a1b26", bg = "#e0af67", bold = true }) -- the last character
+        vim.api.nvim_set_hl(0, "FlashCurrent", { fg = "#1a1b26", bg = "#c0caf5" })
+        vim.api.nvim_set_hl(0, "FlashMatch", { fg = "#1a1b26", bg = "#c0caf5" })
+      end,
+    })
+
+    vim.cmd("colorscheme lunar")
   end,
 }
