@@ -66,6 +66,11 @@ config.keys = {
     action = action.RotatePanes("Clockwise"),
   },
   {
+    key = "y",
+    mods = "CMD",
+    action = action.ActivateCopyMode,
+  },
+  {
     key = "z",
     mods = "CTRL",
     action = action.TogglePaneZoomState,
