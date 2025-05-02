@@ -21,9 +21,10 @@ return {
         vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1a1b26", fg = "#3d59a1" })
         vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#5e6a97" })
         vim.api.nvim_set_hl(0, "AvanteSidebarWinSeparator", { fg = "#5e6a97" })
-        vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#1a1b26", bg = "#e0af67", bold = true }) -- the last character
+        vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#1a1b26", bg = "#e0af67", bold = true })
         vim.api.nvim_set_hl(0, "FlashCurrent", { fg = "#1a1b26", bg = "#c0caf5" })
         vim.api.nvim_set_hl(0, "FlashMatch", { fg = "#1a1b26", bg = "#c0caf5" })
+        vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#16161e" })
       end,
     })
 
