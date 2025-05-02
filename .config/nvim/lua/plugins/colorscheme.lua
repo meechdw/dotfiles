@@ -10,7 +10,7 @@ return {
         vim.api.nvim_set_hl(0, "Comment", { fg = "#6874a1", italic = true })
         vim.api.nvim_set_hl(0, "LineNr", { fg = "#5e6a97" })
         vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#8e97b8" })
-        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#323952" })
+        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#2f354c" })
         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1a1b26" })
         vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#1a1b26", fg = "#3d59a1" })
         vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#1a1b26" })
