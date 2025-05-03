@@ -17,7 +17,7 @@ return {
     end
 
     local theme = require("lualine.themes.lunar")
-    local bg = "#292E42"
+    local bg = "#292e42"
     local fg = theme.normal.c.fg
 
     theme.normal.a.fg = fg
@@ -33,6 +33,9 @@ return {
     theme.visual.a.fg = fg
     theme.visual.a.bg = bg
 
+    package.path = package.path .. ";" .. vim.fn.stdpath("config") .. "/custom/?.lua"
+    local code_companion = require("code-companion-lualine")
+
     require("lualine").setup({
       options = {
         theme = theme,
@@ -44,7 +47,7 @@ return {
         lualine_c = {
           { "filename", path = 1 },
         },
-        lualine_x = { "searchcount", get_lsp_status, "location" },
+        lualine_x = { code_companion, "searchcount", get_lsp_status, "location" },
         lualine_y = {},
         lualine_z = {},
       },
