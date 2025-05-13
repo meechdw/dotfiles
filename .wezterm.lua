@@ -3,16 +3,16 @@ local action = wezterm.action
 local plugin = wezterm.plugin
 
 local config = wezterm.config_builder()
+local tab_zoom_states = {}
 
-config.font = wezterm.font("SFMono Nerd Font", { weight = "Medium" })
-config.font_size = 16
-config.freetype_load_target = "Light"
+config.font = wezterm.font("GeistMono Nerd Font")
+config.font_size = 17
 config.native_macos_fullscreen_mode = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.audible_bell = "Disabled"
-
-config.color_scheme = "lunar"
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.color_scheme = "cyberdream"
 
 config.inactive_pane_hsb = {
   saturation = 1,
@@ -43,7 +43,7 @@ config.keys = {
     mods = "CMD",
     action = action.CloseCurrentTab({ confirm = false }),
   },
-  { key = "LeftArrow", mods = "CMD|SHIFT", action = action.MoveTabRelative(-1) },
+  { key = "LeftArrow",  mods = "CMD|SHIFT", action = action.MoveTabRelative(-1) },
   { key = "RightArrow", mods = "CMD|SHIFT", action = action.MoveTabRelative(1) },
   {
     key = "d",
@@ -74,6 +74,24 @@ config.keys = {
     key = "z",
     mods = "CTRL",
     action = action.TogglePaneZoomState,
+  },
+  {
+    key = "e",
+    mods = "CMD",
+    action = wezterm.action_callback(function(window, pane)
+      local tab = window:active_tab()
+      local tab_id = tab:tab_id()
+
+      if tab_zoom_states[tab_id] then
+        tab_zoom_states[tab_id] = false
+        window:perform_action(wezterm.action.SetPaneZoomState(false), pane)
+        window:perform_action(wezterm.action.ActivatePaneDirection("Down"), pane)
+      else
+        tab_zoom_states[tab_id] = true
+        window:perform_action(wezterm.action.ActivatePaneDirection("Up"), pane)
+        window:perform_action(wezterm.action.SetPaneZoomState(true), pane)
+      end
+    end),
   },
 }
 

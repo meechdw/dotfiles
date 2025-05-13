@@ -16,6 +16,7 @@ return {
       "lua",
       "make",
       "markdown",
+      "nix",
       "rust",
       "sql",
       "svelte",

@@ -1,17 +1,29 @@
-local bufnr = nil
+local buffers = {}
 
-local function toggle_terminal()
-  if bufnr and vim.api.nvim_buf_is_loaded(bufnr) then
-    vim.api.nvim_set_current_buf(bufnr)
+local function toggle_terminal(cmd)
+  cmd = cmd or ""
+
+  if buffers[cmd] and vim.api.nvim_buf_is_loaded(buffers[cmd]) then
+    vim.api.nvim_set_current_buf(buffers[cmd])
+    vim.cmd(":startinsert")
+
     return
   end
 
-  vim.cmd(":te")
-  vim.cmd(":startinsert")
+  if cmd ~= "" then
+    vim.cmd(string.format(":te %s", cmd))
+  else
+    vim.cmd(":te")
+  end
 
-  bufnr = vim.api.nvim_get_current_buf()
+  vim.cmd(":startinsert")
+  buffers[cmd] = vim.api.nvim_get_current_buf()
 end
 
-vim.api.nvim_create_user_command("ToggleTerminal", toggle_terminal, {})
+local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerminal<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tt", toggle_terminal, opts)
+
+vim.keymap.set("n", "<leader>gg", function()
+  toggle_terminal("lazygit")
+end, opts)

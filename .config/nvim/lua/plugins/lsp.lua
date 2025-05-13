@@ -11,7 +11,6 @@ return {
       lspconfig.setup({
         ensure_installed = {
           "bashls",
-          "clangd",
           "neocmake",
           "cssls",
           "docker_compose_language_service",
@@ -25,12 +24,14 @@ return {
           "taplo",
           "ts_ls",
           "yamlls",
+          "zls",
         },
       })
     end,
   },
   {
     "neovim/nvim-lspconfig",
+    commit = "fb733ac734249ccf293e5c8018981d4d8f59fa8f",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "saghen/blink.cmp" },
     config = function()

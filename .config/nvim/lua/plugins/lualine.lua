@@ -11,14 +11,14 @@ return {
 
       if #filtered_clients > 0 then
         return filtered_clients[1].name
-      else
-        return ""
       end
+
+      return ""
     end
 
-    local theme = require("lualine.themes.lunar")
-    local bg = "#292e42"
-    local fg = theme.normal.c.fg
+    local theme = require("lualine.themes.dracula")
+    local bg = "#2a2d32"
+    local fg = "#7b8496"
 
     theme.normal.a.fg = fg
     theme.normal.a.bg = bg
@@ -33,9 +33,6 @@ return {
     theme.visual.a.fg = fg
     theme.visual.a.bg = bg
 
-    package.path = package.path .. ";" .. vim.fn.stdpath("config") .. "/custom/?.lua"
-    local code_companion = require("code-companion-lualine")
-
     require("lualine").setup({
       options = {
         theme = theme,
@@ -43,11 +40,14 @@ return {
         section_separators = "",
       },
       sections = {
+        lualine_a = {
+          { "mode", color = { gui = "bold" } },
+        },
         lualine_b = {},
         lualine_c = {
           { "filename", path = 1 },
         },
-        lualine_x = { code_companion, "searchcount", get_lsp_status, "location" },
+        lualine_x = { "searchcount", get_lsp_status, "location" },
         lualine_y = {},
         lualine_z = {},
       },

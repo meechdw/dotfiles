@@ -8,11 +8,11 @@ $directory$git_branch$character
 
 [directory]
 truncate_to_repo = false
-style = "blue"
+style = "purple"
 home_symbol = "/mitchell"
 
 [git_branch]
-format = "[branch:](white) [$branch](purple) "
+format = "[branch:](bright-white) [$branch](yellow) "
 symbol = ""
 
 [character]
