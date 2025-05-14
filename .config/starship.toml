@@ -8,13 +8,13 @@ $directory$git_branch$character
 
 [directory]
 truncate_to_repo = false
-style = "purple"
+style = "blue"
 home_symbol = "/mitchell"
 
 [git_branch]
-format = "[branch:](bright-white) [$branch](yellow) "
+format = "[branch:](bright-white) [$branch](purple) "
 symbol = ""
 
 [character]
-success_symbol = "[#](red)"
+success_symbol = "[#](green)"
 error_symbol = "[#](red)"

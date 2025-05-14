@@ -16,20 +16,32 @@ return {
       return ""
     end
 
-    local theme = require("lualine.themes.dracula")
-    local bg = "#2a2d32"
-    local fg = "#7b8496"
+    local theme = require("lualine.themes.carbonfox")
+    local bg = "#2b2b2b"
+    local fg = "#a4a5a8"
 
     theme.normal.a.fg = fg
     theme.normal.a.bg = bg
     theme.normal.c.fg = fg
     theme.normal.c.bg = bg
+
     theme.command.a.fg = fg
     theme.command.a.bg = bg
+
+    theme.inactive.a.fg = fg
+    theme.inactive.a.bg = bg
+    theme.inactive.c.fg = fg
+    theme.inactive.c.bg = bg
+
     theme.insert.a.fg = fg
     theme.insert.a.bg = bg
+
     theme.replace.a.fg = fg
     theme.replace.a.bg = bg
+
+    theme.terminal.a.fg = fg
+    theme.terminal.a.bg = bg
+
     theme.visual.a.fg = fg
     theme.visual.a.bg = bg
 
@@ -40,9 +52,6 @@ return {
         section_separators = "",
       },
       sections = {
-        lualine_a = {
-          { "mode", color = { gui = "bold" } },
-        },
         lualine_b = {},
         lualine_c = {
           { "filename", path = 1 },

@@ -6,13 +6,13 @@ local config = wezterm.config_builder()
 local tab_zoom_states = {}
 
 config.font = wezterm.font("GeistMono Nerd Font")
-config.font_size = 17
+config.font_size = 16
 config.native_macos_fullscreen_mode = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.audible_bell = "Disabled"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-config.color_scheme = "cyberdream"
+config.color_scheme = "carbonfox"
 
 config.inactive_pane_hsb = {
   saturation = 1,
