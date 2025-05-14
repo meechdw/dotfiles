@@ -38,6 +38,7 @@
           pkgs.colima
           pkgs.dbeaver-bin
           pkgs.docker
+          pkgs.doppler
           pkgs.fastfetch
           pkgs.fzf
           pkgs.go
@@ -78,16 +79,16 @@
           dock.autohide = true;
           dock.show-recents = false;
           dock.persistent-apps = [
-            "/Applications/Safari.app"
+            "/System/Applications/Firefox.app"
             "/System/Applications/Mail.app"
             "/System/Applications/Calendar.app"
             "${pkgs.wezterm}/Applications/WezTerm.app"
           ];
           loginwindow.GuestEnabled = false;
-                NSGlobalDomain = {
-                  AppleInterfaceStyle = "Dark";
-                  KeyRepeat = 2;
-                  NSAutomaticSpellingCorrectionEnabled = false;
+          NSGlobalDomain = {
+            AppleInterfaceStyle = "Dark";
+            KeyRepeat = 2;
+            NSAutomaticSpellingCorrectionEnabled = false;
           };
           universalaccess.reduceMotion = true;
         };
@@ -128,9 +129,6 @@
           "slack"
           "spotify"
         ];
-        masApps = {
-          "AdBlock for Safari" = 1402042596;
-        };
         onActivation = {
           cleanup = "zap";
           autoUpdate = true;

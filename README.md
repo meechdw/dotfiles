@@ -4,18 +4,13 @@ This repository contains my configuration files for macOS, managed with [nix-dar
 
 ## Bootstrap a New Machine
 
-Install the Xcode Command Line Tools:
-
-```bash
-xcode-select --install
-```
-
-Give full disk access to the terminal: `System Settings` > `Privacy & Security` > `Full Disk Access`.
+First, give full disk access to the terminal: `System Settings` > `Privacy & Security` > `Full Disk Access`.
 
 Ensure the following conditions are met before proceeding:
 
 - If the system has not been rebooted since activation, reboot the system.
-- If you have not yet logged into [GitHub](https://github.com) in the browser, do so now.
+- If you have not yet logged in to [GitHub](https://github.com) in the browser, do so now.
+- If you have not yet logged in to [Doppler](https://doppler.com) in the browser, do so now.
 
 Then, run the bootstrap script:
 
@@ -35,7 +30,7 @@ Lastly, reboot the machine.
 
 ## Rebuild the Config
 
-Changes to files other than [flake.nix](./.config/nix/flake.nix) do not require a rebuild since they are symlinked. Adding additional files or modifying [flake.nix](./.config/nix/flake.nix) requires a rebuild:
+Changes to files other than [flake.nix](./.config/nix/flake.nix) do not require a rebuild since they are symlinked. Adding additional files, removing existing files, or modifying [flake.nix](./.config/nix/flake.nix) requires a rebuild:
 
 ```bash
 ./rebuild.sh
