@@ -5,6 +5,7 @@ local palette = {
   bg4 = "#444850",
   fg1 = "#ffffff",
   fg2 = "#7b8496",
+  black = "#000000",
   blue = "#5ea1ff",
   cyan = "#5ef1ff",
   green = "#5eff6c",
@@ -12,7 +13,7 @@ local palette = {
   pink = "#ff5ea0",
   purple = "#bd5eff",
   red = "#ff6e5e",
-  yellow = "#ffbd5e",
+  yellow = "#f2ff5e",
 }
 
 return {
@@ -58,6 +59,9 @@ return {
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.fg2 })
         vim.api.nvim_set_hl(0, "StatusLine", { bg = palette.bg1 })
         vim.api.nvim_set_hl(0, "IblIndent", { fg = palette.bg2 })
+        vim.api.nvim_set_hl(0, "FlashCurrent", { bg = palette.bg3, fg = palette.fg1 })
+        vim.api.nvim_set_hl(0, "FlashMatch", { bg = palette.bg3, fg = palette.fg1 })
+        vim.api.nvim_set_hl(0, "FlashLabel", { bg = palette.yellow, fg = palette.black, bold = true })
         vim.api.nvim_set_hl(0, "MiniIconsYellow", { fg = palette.yellow })
         vim.api.nvim_set_hl(0, "MiniIconsPurple", { fg = palette.purple })
         vim.api.nvim_set_hl(0, "MiniIconsOrange", { fg = palette.orange })
