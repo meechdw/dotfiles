@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-xcode-select --install
+set -e
 
 mkdir -p ~/src
 cd ~/src
@@ -16,16 +16,16 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
 
 nix run nix-darwin/master#darwin-rebuild --extra-experimental-features 'nix-command flakes' --impure -- switch --flake ./.config/nix#Main
 
-doppler login
+/run/current-system/sw/bin/doppler login
 
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 
-GIT_SSH_PRIVATE_KEY=$(doppler secrets get --project personal --plain GIT_SSH_PRIVATE_KEY)
+GIT_SSH_PRIVATE_KEY=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain GIT_SSH_PRIVATE_KEY)
 cat > ~/.ssh/id_ed25519 <<< "$GIT_SSH_PRIVATE_KEY"
 chmod 600 ~/.ssh/id_ed25519
 
-GIT_SSH_PUBLIC_KEY=$(doppler secrets get --project personal --plain GIT_SSH_PUBLIC_KEY)
+GIT_SSH_PUBLIC_KEY=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain GIT_SSH_PUBLIC_KEY)
 cat > ~/.ssh/id_ed25519.pub <<< "$GIT_SSH_PUBLIC_KEY"
 chmod 644 ~/.ssh/id_ed25519.pub
 
@@ -36,7 +36,7 @@ ssh-add ~/.ssh/id_ed25519
 git config --global user.name "Mitchell Wilson"
 git config --global user.email "mitchelldw01@gmail.com"
 
-ANTHROPIC_API_KEY=$(doppler secrets get --project personal --plain ANTHROPIC_API_KEY)
+ANTHROPIC_API_KEY=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain ANTHROPIC_API_KEY)
 security add-generic-password -a "$USER" -s "ENV_ANTHROPIC_API_KEY" -w "$ANTHROPIC_API_KEY"
 
 echo -e "\nBootstrap complete. Reboot your system."
