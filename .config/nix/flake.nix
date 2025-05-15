@@ -79,10 +79,12 @@
           dock.autohide = true;
           dock.show-recents = false;
           dock.persistent-apps = [
-            "/System/Applications/Firefox.app"
+            "/Applications/Firefox.app"
+            "${pkgs.wezterm}/Applications/WezTerm.app"
+            "${pkgs.slack}/Applications/Slack.app"
             "/System/Applications/Mail.app"
             "/System/Applications/Calendar.app"
-            "${pkgs.wezterm}/Applications/WezTerm.app"
+            "/System/Applications/Notes.app"
           ];
           loginwindow.GuestEnabled = false;
           NSGlobalDomain = {
