@@ -57,7 +57,7 @@ ssh-add ~/.ssh/id_ed25519
 git config --global user.name "Mitchell Wilson"
 git config --global user.email "mitchelldw01@gmail.com"
 
-defaults write "$(osascript -e 'id of app "Cursor"')" ApplePressAndHoldEnabled -bool false && osascript -e 'quit app "Cursor"' && open -a "Cursor"
+defaults write "$(osascript -e 'id of app "Cursor"')" ApplePressAndHoldEnabled -bool false
 
 echo -e "\nBootstrap complete. Reboot your system."
 
