@@ -59,6 +59,7 @@ return {
       lspconfig.jsonls.setup(base_config)
       lspconfig.lua_ls.setup(base_config)
       lspconfig.neocmake.setup(base_config)
+      lspconfig.nixd.setup(base_config)
       lspconfig.taplo.setup(base_config)
       lspconfig.ts_ls.setup(base_config)
       lspconfig.yamlls.setup(base_config)

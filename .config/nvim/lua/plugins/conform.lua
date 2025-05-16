@@ -8,6 +8,7 @@ return {
       typescript = { "prettierd" },
       lua = { "stylua" },
       markdown = { "prettierd" },
+      nix = { "nixfmt" },
       yaml = { "prettierd" },
     },
     format_on_save = {
