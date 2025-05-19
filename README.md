@@ -18,7 +18,7 @@ If the system has not been rebooted since activation, reboot the system. Then, r
 curl -fsSL https://raw.githubusercontent.com/meechdw/dotfiles/main/bootstrap.sh | bash
 ```
 
-Give full disk access to the WezTerm: `System Settings` > `Privacy & Security` > `Full Disk Access`.
+Give full disk access to the [WezTerm](https://wezterm.org): `System Settings` > `Privacy & Security` > `Full Disk Access`.
 
 Manually configure the following settings:
 

@@ -5,7 +5,7 @@ return {
     "echasnovski/mini.icons",
   },
   opts = {
-    file_types = { "markdown", "codecompanion" },
+    file_types = { "markdown" },
     completions = { blink = { enabled = true } },
     latex = { enabled = false },
     sign = { enabled = false },

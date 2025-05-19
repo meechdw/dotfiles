@@ -45,6 +45,7 @@
 
           environment = {
             systemPackages = [
+              pkgs.aider-chat
               pkgs.awscli2
               pkgs.bruno
               pkgs.colima
@@ -127,12 +128,14 @@
                     dotfiles = "${config.home.homeDirectory}/src/dotfiles";
                   in
                   {
+                    ".aider.conf.yml".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.aider.conf.yml";
                     ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.wezterm.lua";
                     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zshrc";
                     ".config/starship.toml".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
                     ".config/karabiner/karabiner.json".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
+                    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/git";
                     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/nvim";
                     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/wezterm";
                   };

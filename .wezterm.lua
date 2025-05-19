@@ -43,7 +43,7 @@ config.keys = {
     mods = "CMD",
     action = action.CloseCurrentTab({ confirm = false }),
   },
-  { key = "LeftArrow",  mods = "CMD|SHIFT", action = action.MoveTabRelative(-1) },
+  { key = "LeftArrow", mods = "CMD|SHIFT", action = action.MoveTabRelative(-1) },
   { key = "RightArrow", mods = "CMD|SHIFT", action = action.MoveTabRelative(1) },
   {
     key = "d",
@@ -92,6 +92,11 @@ config.keys = {
         window:perform_action(wezterm.action.SetPaneZoomState(true), pane)
       end
     end),
+  },
+  {
+    key = "Enter",
+    mods = "ALT",
+    action = wezterm.action.DisableDefaultAssignment,
   },
 }
 

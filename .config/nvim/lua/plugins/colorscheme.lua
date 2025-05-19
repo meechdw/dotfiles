@@ -7,7 +7,7 @@ return {
       carbonfox = {
         bg2 = "#2b2b2b",
         bg4 = "#595959",
-      }
+      },
     },
     groups = {
       carbonfox = {
@@ -18,14 +18,14 @@ return {
         TelescopeTitle = { fg = "palette.blue.base" },
         Visual = { bg = "palette.bg3" },
         WinSeparator = { fg = "palette.bg4" },
-      }
+      },
     },
   },
   config = function(_, opts)
     require("nightfox").setup(opts)
     vim.cmd.colorscheme("carbonfox")
 
-    for _, group in ipairs(vim.fn.getcompletion('', 'highlight')) do
+    for _, group in ipairs(vim.fn.getcompletion("", "highlight")) do
       local current = vim.api.nvim_get_hl(0, { name = group })
       current.bold = false
       current.italic = false
