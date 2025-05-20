@@ -65,6 +65,7 @@
               pkgs.ripgrep
               pkgs.starship
               pkgs.stylua
+              pkgs.tokei
               pkgs.wezterm
               pkgs.yarn
               pkgs.zoxide
