@@ -1,12 +1,12 @@
 model: sonnet
 multiline: true
+code-theme: monokai
 auto-commits: false
-dark-mode: true
-user-input-color: "#25be6a"
-tool-output-color: "#dfdfe0"
+user-input-color: "#32B1ff"
+tool-output-color: "#08bdba"
 tool-error-color: "#ee5396"
 tool-warning-color: "#08bdba"
-assistant-output-color: "#78a9ff"
+assistant-output-color: "#f2f4f8"
 completion-menu-color: "#f2f4f8"
 completion-menu-bg-color: "#2b2b2b"
 completion-menu-current-color: "#08bdba"
