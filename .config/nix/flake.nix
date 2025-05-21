@@ -149,10 +149,11 @@
               "mas"
             ];
             casks = [
-              "cursor"
+              "discord"
               "google-chrome"
               "karabiner-elements"
               "firefox"
+              "neovide"
               "slack"
               "spotify"
             ];

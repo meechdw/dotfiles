@@ -85,6 +85,21 @@ return {
           },
         },
       }))
+
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = false,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          border = "rounded",
+          max_width = 100,
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
     end,
   },
 }
