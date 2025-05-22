@@ -15,9 +15,17 @@ return {
   },
   {
     "echasnovski/mini.files",
-    opts = {},
     keys = {
       { "<leader>n", "<cmd>lua MiniFiles.open()<CR>" },
+    },
+    opts = {
+      mappings = {
+        close = "w",
+        synchronize = "s",
+      },
+      options = {
+        permanent_delete = false,
+      },
     },
   },
 }
