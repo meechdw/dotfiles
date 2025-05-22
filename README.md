@@ -30,8 +30,6 @@ Manually configure the following settings:
 
 Run the `Import Preferences & Data` command in [Raycast](https://www.raycast.com) to import [Raycast.rayconfig](./Raycast.rayconfig).
 
-Manually install [NeoHub](https://github.com/alex35mil/NeoHub).
-
 Lastly, reboot the machine.
 
 ## Rebuild the Config

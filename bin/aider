@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+venv=~/.aider-venv
+
+cleanup() {
+    if [ "$deactivate" == 1 ]; then
+        deactivate 2>/dev/null || true
+    fi
+}
+
+trap cleanup EXIT
+
+if [ ! -d "$venv" ]; then
+    python -m venv $venv
+
+    source $venv/bin/activate
+
+    python -m pip install --upgrade pip
+    python -m pip install --upgrade --upgrade-strategy only-if-needed "aider-chat[playwright]"
+    python -m playwright install --with-deps chromium
+
+    pip install -e ~/src/aider                                                                                                                                                      
+fi
+
+deactivate=0
+if [ -z "$VIRTUAL_ENV" ] || [ "$VIRTUAL_ENV" != *"$venv"* ]; then
+    source $venv/bin/activate
+    deactivate=1
+fi
+
+aider "$@"

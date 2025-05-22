@@ -5,7 +5,7 @@ auto-commits: false
 user-input-color: "#32B1ff"
 tool-output-color: "#08bdba"
 tool-error-color: "#ee5396"
-tool-warning-color: "#08bdba"
+tool-warning-color: "#be95ff"
 assistant-output-color: "#f2f4f8"
 completion-menu-color: "#f2f4f8"
 completion-menu-bg-color: "#2b2b2b"

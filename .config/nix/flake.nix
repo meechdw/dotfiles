@@ -45,7 +45,6 @@
 
           environment = {
             systemPackages = [
-              pkgs.aider-chat
               pkgs.awscli2
               pkgs.bruno
               pkgs.colima
@@ -55,12 +54,14 @@
               pkgs.fastfetch
               pkgs.fzf
               pkgs.go
+              pkgs.ice-bar
               pkgs.lazygit
               pkgs.mkalias
               pkgs.neovim
               pkgs.nodejs_22
               pkgs.nixd
               pkgs.nixfmt-rfc-style
+              pkgs.python3
               pkgs.raycast
               pkgs.ripgrep
               pkgs.starship
@@ -153,7 +154,6 @@
               "google-chrome"
               "karabiner-elements"
               "firefox"
-              "neovide"
               "slack"
               "spotify"
             ];
