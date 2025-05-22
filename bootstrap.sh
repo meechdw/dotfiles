@@ -22,6 +22,9 @@ nix run nix-darwin/master#darwin-rebuild --extra-experimental-features 'nix-comm
 ANTHROPIC_API_KEY=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain ANTHROPIC_API_KEY)
 security add-generic-password -a "$USER" -s "ENV_ANTHROPIC_API_KEY" -w "$ANTHROPIC_API_KEY"
 
+DEEPSEEK_API_KEY=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain DEEPSEEK_API_KEY)
+security add-generic-password -a "$USER" -s "ENV_DEEPSEEK_API_KEY" -w "$DEEPSEEK_API_KEY"
+
 AWS_ACCESS_KEY_ID=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain AWS_ACCESS_KEY_ID)
 AWS_SECRET_ACCESS_KEY=$(/run/current-system/sw/bin/doppler secrets get --project personal --plain AWS_SECRET_ACCESS_KEY)
 
@@ -56,8 +59,6 @@ ssh-add ~/.ssh/id_ed25519
 
 git config --global user.name "Mitchell Wilson"
 git config --global user.email "mitchelldw01@gmail.com"
-
-defaults write "$(osascript -e 'id of app "Cursor"')" ApplePressAndHoldEnabled -bool false
 
 echo -e "\nBootstrap complete. Reboot your system."
 
