@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Stops all running Docker containers
+
+containers=$(docker ps -q)
+
+if [ -z "$containers" ]; then
+    echo "No running Docker containers found."
+    exit 0
+fi
+
+echo "Stopping all running Docker containers..."
+docker stop $containers
+echo "All running Docker containers have been stopped."

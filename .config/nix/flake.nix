@@ -77,8 +77,8 @@
             };
             extraInit = ''
               export PATH="$HOME/.local/bin:$PATH"
-              export PATH="$HOME/src/bin:$PATH"
               export PATH="$HOME/src/dev-tools/bin:$PATH"
+              export PATH="$HOME/src/dotfiles/bin:$PATH"
               export PATH="$HOME/src/infrastructure/bin:$PATH"
             '';
           };
