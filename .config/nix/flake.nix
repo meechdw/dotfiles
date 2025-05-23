@@ -53,19 +53,17 @@
               pkgs.doppler
               pkgs.fastfetch
               pkgs.fzf
-              pkgs.go
+              pkgs.git
               pkgs.ice-bar
               pkgs.lazygit
+              pkgs.lftp
               pkgs.mkalias
               pkgs.neovim
               pkgs.nodejs_22
-              pkgs.nixd
-              pkgs.nixfmt-rfc-style
               pkgs.python3
               pkgs.raycast
               pkgs.ripgrep
               pkgs.starship
-              pkgs.stylua
               pkgs.tokei
               pkgs.wezterm
               pkgs.yarn

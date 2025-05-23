@@ -2,13 +2,13 @@
 
 # Execs into a running Docker container
 
-if [ "$#" -ne 2 ]; then
-    echo "Usage: dx <container-name> <shell-type>"
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+    echo "Usage: dx <container-name> [shell-type]"
     exit 1
 fi
 
 container_name_substr=$1
-shell_type=$2
+shell_type=${2:-/bin/bash}
 
 container_id=$(docker ps --format '{{.Names}}' | grep -i "$container_name_substr" | head -n1)
 
