@@ -17,6 +17,7 @@ vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<cr>", opts)
 
 vim.keymap.set("n", "<leader>s", "<cmd>vsplit<cr><C-w>l", opts)
 vim.keymap.set("n", "<C-q>", "<C-w>q", opts)
+vim.keymap.set("n", "<C-=>", "<C-w>=", opts)
 
 vim.keymap.set("n", "<leader>r", "<cmd>LspRestart<cr>")
 vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
