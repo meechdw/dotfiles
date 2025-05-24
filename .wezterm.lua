@@ -3,7 +3,10 @@ local action = wezterm.action
 local plugin = wezterm.plugin
 
 local config = wezterm.config_builder()
-local tab_zoom_states = {}
+
+local workspace_switcher =
+  plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+workspace_switcher.apply_to_config(config)
 
 config.font = wezterm.font("GeistMono Nerd Font")
 config.font_size = 16
@@ -76,27 +79,19 @@ config.keys = {
     action = action.TogglePaneZoomState,
   },
   {
-    key = "e",
+    key = "l",
     mods = "CMD",
-    action = wezterm.action_callback(function(window, pane)
-      local tab = window:active_tab()
-      local tab_id = tab:tab_id()
-
-      if tab_zoom_states[tab_id] then
-        tab_zoom_states[tab_id] = false
-        window:perform_action(wezterm.action.SetPaneZoomState(false), pane)
-        window:perform_action(wezterm.action.ActivatePaneDirection("Down"), pane)
-      else
-        tab_zoom_states[tab_id] = true
-        window:perform_action(wezterm.action.ActivatePaneDirection("Up"), pane)
-        window:perform_action(wezterm.action.SetPaneZoomState(true), pane)
-      end
-    end),
+    action = workspace_switcher.switch_workspace(),
+  },
+  {
+    key = "L",
+    mods = "CMD",
+    action = workspace_switcher.switch_to_prev_workspace(),
   },
   {
     key = "Enter",
-    mods = "ALT",
-    action = wezterm.action.DisableDefaultAssignment,
+    mods = "OPT",
+    action = action.DisableDefaultAssignment,
   },
 }
 
