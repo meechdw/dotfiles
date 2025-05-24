@@ -48,22 +48,22 @@ return {
       { "bashls", "bash-language-server" },
       { "docker_compose_language_service", "docker-compose-langserver" },
       { "dockerls", "docker-langserver" },
-      { "gopls", "gopls" },
+      { "gopls" },
       { "html", "vscode-html-language-server" },
       { "jsonls", "vscode-json-languageserver" },
       { "lua_ls", "lua-language-server" },
       { "neocmake", "neocmakelsp" },
-      { "nixd", "nixd" },
+      { "nixd" },
       { "rust_analyzer", "rust-analyzer" },
-      { "taplo", "taplo" },
+      { "taplo" },
       { "ts_ls", "typescript-language-server" },
       { "yamlls", "yaml-language-server" },
-      { "zls", "zls" },
+      { "zls" },
     }
 
     for _, server in ipairs(servers) do
       local name, cmd = unpack(server)
-      if vim.fn.executable(cmd) == 1 then
+      if vim.fn.executable(cmd or name) == 1 then
         lspconfig[name].setup(vim.tbl_deep_extend("keep", base_config, configs[name] or {}))
       end
     end
