@@ -21,7 +21,7 @@ return {
     opts = {
       mappings = {
         close = "w",
-        synchronize = "s",
+        synchronize = "e",
       },
       options = {
         permanent_delete = false,
