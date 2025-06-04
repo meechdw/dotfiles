@@ -12,7 +12,7 @@ style = "blue"
 home_symbol = "/mitchell"
 
 [git_branch]
-format = "[branch:](bright-white) [$branch](purple) "
+format = "[branch:](black) [$branch](purple) "
 symbol = ""
 
 [character]
