@@ -6,7 +6,6 @@ local function toggle_terminal(cmd)
   if buffers[cmd] and vim.api.nvim_buf_is_loaded(buffers[cmd]) then
     vim.api.nvim_set_current_buf(buffers[cmd])
     vim.cmd(":startinsert")
-
     return
   end
 
@@ -16,8 +15,18 @@ local function toggle_terminal(cmd)
     vim.cmd(":te")
   end
 
+  local bufname
+  if cmd ~= "" then
+    bufname = cmd
+  else
+    bufname = "terminal"
+  end
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.api.nvim_buf_set_name(bufnr, bufname)
+
   vim.cmd(":startinsert")
-  buffers[cmd] = vim.api.nvim_get_current_buf()
+  buffers[cmd] = bufnr
 end
 
 local opts = { noremap = true, silent = true }
