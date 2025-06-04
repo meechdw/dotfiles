@@ -16,12 +16,20 @@ return {
   {
     "echasnovski/mini.files",
     keys = {
-      { "<leader>n", "<cmd>lua MiniFiles.open()<CR>" },
+      {
+        "<leader>n",
+        function()
+          if vim.bo.filetype == "minifiles" then
+            vim.cmd("lua MiniFiles.close()")
+          else
+            vim.cmd("lua MiniFiles.open()")
+          end
+        end,
+      },
     },
     opts = {
       mappings = {
-        close = "w",
-        synchronize = "e",
+        synchronize = ":",
       },
       options = {
         permanent_delete = false,
