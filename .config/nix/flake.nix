@@ -45,6 +45,7 @@
 
           environment = {
             systemPackages = [
+              pkgs.aider-chat-full
               pkgs.awscli2
               pkgs.bat
               pkgs.bruno
@@ -61,7 +62,7 @@
               pkgs.mkalias
               pkgs.neovim
               pkgs.nodejs_22
-              pkgs.python3
+              # pkgs.python3
               pkgs.raycast
               pkgs.ripgrep
               pkgs.starship
