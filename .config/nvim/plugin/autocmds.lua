@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    if vim.g.neovide or (vim.api.nvim_buf_get_name(0) == "" and not vim.bo.modified) then
+    if vim.api.nvim_buf_get_name(0) == "" and not vim.bo.modified then
       require("telescope.builtin").find_files()
     end
   end,
