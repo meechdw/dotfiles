@@ -1,3 +1,4 @@
+alias cat="bat"
 alias cd="z"
 alias vi="nvim"
 alias vim="nvim"

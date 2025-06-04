@@ -46,6 +46,7 @@
           environment = {
             systemPackages = [
               pkgs.awscli2
+              pkgs.bat
               pkgs.bruno
               pkgs.colima
               pkgs.dbeaver-bin
@@ -135,6 +136,7 @@
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
                     ".config/karabiner/karabiner.json".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
+                    ".config/bat".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/bat";
                     ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/git";
                     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/nvim";
                     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/wezterm";
