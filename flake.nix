@@ -26,6 +26,7 @@
               nixfmt-rfc-style
               nodePackages.vscode-json-languageserver
               stylua
+              taplo
               yaml-language-server
             ];
           };
