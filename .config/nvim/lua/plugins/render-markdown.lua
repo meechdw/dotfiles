@@ -8,6 +8,8 @@ return {
     file_types = { "markdown" },
     completions = { blink = { enabled = true } },
     latex = { enabled = false },
-    sign = { enabled = false },
+    ignore = function(bufnr)
+      return vim.api.nvim_buf_get_name(bufnr) ~= ""
+    end,
   },
 }
