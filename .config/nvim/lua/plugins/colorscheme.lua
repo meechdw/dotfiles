@@ -26,6 +26,7 @@ return {
         BlinkCmpDoc = { bg = "palette.bg1" },
         BlinkCmpDocBorder = { bg = "palette.bg1", fg = "palette.bg4" },
         MiniIndentscopeSymbol = { fg = "palette.bg4" },
+        NeoTreeNormal = { bg = "palette.bg1" },
       },
     },
   },
