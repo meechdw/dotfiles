@@ -22,11 +22,10 @@ Give full disk access to the [WezTerm](https://wezterm.org): `System Settings` >
 
 Manually configure the following settings:
 
-- Shorten key repeat delay: `System Settings` > `Keyboard` > `Keyboard sensitivity`.
-- Update desktop wallpaper: `System Settings` > `Wallpaper`.
 - Configure display sleep durations: `System Settings` > `Lock Screen`.
 - Enable Night Shift: `System Settings` > `Displays` > `Night Shift`.
 - Disable hotkey for Spotlight: `System Settings` > `Keyboard` > `Keyboard shortcuts` > `Spotlight`.
+- Update desktop wallpaper: `System Settings` > `Wallpaper`.
 
 Run the `Import Preferences & Data` command in [Raycast](https://www.raycast.com) to import [Raycast.rayconfig](./Raycast.rayconfig).
 

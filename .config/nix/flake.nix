@@ -62,7 +62,6 @@
               pkgs.mkalias
               pkgs.neovim
               pkgs.nodejs_22
-              # pkgs.python3
               pkgs.raycast
               pkgs.ripgrep
               pkgs.starship
@@ -108,6 +107,7 @@
               NSGlobalDomain = {
                 AppleInterfaceStyle = "Dark";
                 KeyRepeat = 2;
+                InitialKeyRepeat = 1;
                 NSAutomaticSpellingCorrectionEnabled = false;
               };
               universalaccess.reduceMotion = true;
