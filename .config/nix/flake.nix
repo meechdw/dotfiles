@@ -54,6 +54,7 @@
               pkgs.docker
               pkgs.doppler
               pkgs.fastfetch
+              pkgs.fd
               pkgs.fzf
               pkgs.git
               pkgs.ice-bar
