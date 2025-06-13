@@ -14,25 +14,14 @@ return {
     end,
   },
   {
-    "echasnovski/mini.files",
-    keys = {
-      {
-        "<leader>n",
-        function()
-          if vim.bo.filetype == "minifiles" then
-            vim.cmd("lua MiniFiles.close()")
-          else
-            vim.cmd("lua MiniFiles.open()")
-          end
-        end,
-      },
-    },
+    "echasnovski/mini.indentscope",
     opts = {
-      mappings = {
-        synchronize = ":",
-      },
-      options = {
-        permanent_delete = false,
+      symbol = "▏",
+      draw = {
+        delay = 0,
+        animation = function()
+          return 0
+        end,
       },
     },
   },
