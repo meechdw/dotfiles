@@ -108,7 +108,7 @@
               NSGlobalDomain = {
                 AppleInterfaceStyle = "Dark";
                 KeyRepeat = 2;
-                InitialKeyRepeat = 1;
+                InitialKeyRepeat = 15;
                 NSAutomaticSpellingCorrectionEnabled = false;
               };
               universalaccess.reduceMotion = true;
