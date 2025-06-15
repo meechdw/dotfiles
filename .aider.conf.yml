@@ -1,13 +1,18 @@
-model: sonnet
+model: r1
+editor-model: sonnet
+architect: true
 multiline: true
-code-theme: monokai
 auto-commits: false
-user-input-color: "#32B1ff"
-tool-output-color: "#08bdba"
-tool-error-color: "#ee5396"
-tool-warning-color: "#be95ff"
-assistant-output-color: "#f2f4f8"
-completion-menu-color: "#f2f4f8"
-completion-menu-bg-color: "#2b2b2b"
-completion-menu-current-color: "#08bdba"
-completion-menu-current-bg-color: "#353535"
+model-settings-file: .aider.model.setting.yml
+alias:
+  - r1:openrouter/deepseek/deepseek-r1
+code-theme: monokai
+user-input-color: "#c0caf5"
+tool-output-color: "#9ece6a"
+tool-error-color: "#f7768e"
+tool-warning-color: "#e0af68"
+assistant-output-color: "#7dcfff"
+completion-menu-color: "#c0caf5"
+completion-menu-bg-color: "#101119"
+completion-menu-current-color: "#c0caf5"
+completion-menu-current-bg-color: "#283457"

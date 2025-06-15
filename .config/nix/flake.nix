@@ -91,6 +91,7 @@
           fonts.packages = [ pkgs.nerd-fonts.geist-mono ];
 
           system = {
+            primaryUser = "mitchell";
             configurationRevision = self.rev or self.dirtyRev or null;
             stateVersion = 6;
             defaults = {
@@ -132,6 +133,8 @@
                   in
                   {
                     ".aider.conf.yml".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.aider.conf.yml";
+                    ".aider.model.setting.yml".source =
+                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.aider.model.setting.yml";
                     ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.wezterm.lua";
                     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zshrc";
                     ".config/starship.toml".source =

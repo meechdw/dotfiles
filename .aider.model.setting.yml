@@ -1,0 +1,7 @@
+- name: openrouter/deepseek/deepseek-r1
+  extra_params:
+    top_p: 0.95
+    temperature: 0.6
+    reasoning:
+      exclude: true
+  use_temperature: 0.6
