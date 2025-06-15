@@ -11,7 +11,9 @@ return {
     enable_git_status = false,
     enable_diagnostics = false,
     filesystem = {
-      follow_current_file = true,
+      follow_current_file = {
+        enabled = true,
+      },
       filtered_items = {
         hide_dotfiles = false,
         hide_gitignored = false,

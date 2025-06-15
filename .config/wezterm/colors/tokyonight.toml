@@ -1,0 +1,33 @@
+[metadata]
+name = "tokyonight"
+
+[colors]
+foreground = "#c0caf5"
+background = "#14151f"
+cursor_bg = "#c0caf5"
+cursor_border = "#c0caf5"
+cursor_fg = "#14151f"
+selection_bg = "#283457"
+split = "#545c7e"
+
+ansi = [
+    "#737aa2",
+    "#f7768e",
+    "#9ece6a",
+    "#e0af68",
+    "#7aa2f7",
+    "#bb9af7",
+    "7dcfff",
+    "#737aa2",
+]
+
+brights = [
+    "#737aa2",
+    "#f7768e",
+    "#9ece6a",
+    "#e0af68",
+    "#7aa2f7",
+    "#bb9af7",
+    "7dcfff",
+    "#737aa2",
+]

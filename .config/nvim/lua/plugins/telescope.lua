@@ -29,6 +29,10 @@ return {
   },
   opts = {
     extensions = { fzf = {} },
+    defaults = {
+      prompt_prefix = "▶︎ ",
+      selection_caret = "▶︎ ",
+    },
     pickers = {
       find_files = {
         previewer = false,

@@ -1,55 +1,38 @@
 return {
-  "EdenEast/nightfox.nvim",
-  priority = 1000,
+  "folke/tokyonight.nvim",
   lazy = false,
+  priority = 1000,
   opts = {
-    palettes = {
-      carbonfox = {
-        bg2 = "#2b2b2b",
-        bg3 = "#3b3b3b",
-        bg4 = "#5e5e5e",
-      },
+    style = "night",
+    styles = {
+      comments = { italic = false },
+      keywords = { italic = false },
     },
-    groups = {
-      carbonfox = {
-        CursorLineNr = { fg = "palette.fg1" },
-        CursorLine = { bg = "palette.bg2" },
-        Comment = { fg = "palette.fg3" },
-        FloatBorder = { fg = "palette.bg4" },
-        NormalFloat = { bg = "palette.bg1" },
-        TelescopeTitle = { fg = "palette.fg3" },
-        TelescopePromptCounter = { fg = "palette.fg3" },
-        Visual = { bg = "palette.bg3" },
-        WinSeparator = { fg = "palette.bg4" },
-        BlinkCmpLabelDetail = { fg = "palette.fg2" },
-        BlinkCmpScrollBarThumb = { bg = "palette.fg3" },
-        BlinkCmpDoc = { bg = "palette.bg1" },
-        BlinkCmpDocBorder = { bg = "palette.bg1", fg = "palette.bg4" },
-        MiniIndentscopeSymbol = { fg = "palette.bg4" },
-        NeoTreeNormal = { bg = "palette.bg1" },
-      },
-    },
+    on_colors = function(colors)
+      colors.bg = "#14151f"
+      colors.bg_dark = "#14151f"
+      colors.bg_highlight = "#212436"
+      colors.comment = "#6c77a3"
+      colors.fg_gutter = "#30374f"
+    end,
+    on_highlights = function(hl, colors)
+      hl.CursorLineNr = { fg = colors.fg }
+      hl.WinSeparator = { fg = colors.dark3 }
+      hl.FloatBorder = { fg = colors.dark3 }
+      hl.LineNrAbove = { fg = "#56628a" }
+      hl.LineNrBelow = { fg = "#56628a" }
+      hl.MiniIndentscopeSymbol = { fg = "#52597a" }
+      hl.BlinkCmpMenu = { bg = "#101119" }
+      hl.BlinkCmpLabel = { bg = "#101119" }
+      hl.BlinkCmpLabelDetail = { fg = colors.dark5 }
+      hl.BlinkCmpLabelDescription = { fg = colors.fg_dark }
+      hl.BlinkCmpSelection = { bg = colors.bg_highlight }
+      hl.BlinkCmpDocBorder = { fg = colors.dark3 }
+      hl.FlashCurrent = { bg = colors.blue0, fg = colors.fg }
+    end,
   },
   config = function(_, opts)
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "zig",
-      callback = function()
-        vim.fn.matchadd("ZigReturn", "\\(//.*\\|^test.*\\)\\@<!\\<return\\>", 200)
-      end,
-    })
-
-    vim.api.nvim_set_hl(0, "ZigReturn", { fg = "#ee5396" })
-
-    require("nightfox").setup(opts)
-    vim.cmd.colorscheme("carbonfox")
-
-    for _, group in ipairs(vim.fn.getcompletion("", "highlight")) do
-      local current = vim.api.nvim_get_hl(0, { name = group })
-      current.bold = false
-      current.italic = false
-      vim.api.nvim_set_hl(0, group, current)
-    end
-
-    vim.api.nvim_set_hl(0, "CursorLineNr", { bold = true })
+    require("tokyonight").setup(opts)
+    vim.cmd("colorscheme tokyonight")
   end,
 }

@@ -5,20 +5,16 @@ return {
       local bufnr = vim.api.nvim_get_current_buf()
       local clients = vim.lsp.get_clients({ bufnr = bufnr })
 
-      local filtered_clients = vim.tbl_filter(function(client)
-        return client.name ~= "GitHub Copilot"
-      end, clients)
-
-      if #filtered_clients > 0 then
-        return filtered_clients[1].name
+      if #clients > 0 then
+        return clients[1].name
       end
 
       return ""
     end
 
-    local theme = require("lualine.themes.carbonfox")
-    local bg = "#2b2b2b"
-    local fg = "#a4a5a8"
+    local theme = require("lualine.themes.tokyonight")
+    local bg = "#212436"
+    local fg = "#a9b1d6"
 
     theme.normal.a.fg = fg
     theme.normal.a.bg = bg
@@ -52,6 +48,9 @@ return {
         section_separators = "",
       },
       sections = {
+        lualine_a = {
+          { "mode", color = { gui = "bold" } },
+        },
         lualine_b = {},
         lualine_c = {
           { "filename", path = 1 },

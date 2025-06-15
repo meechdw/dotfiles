@@ -6,6 +6,7 @@ local config = wezterm.config_builder()
 
 local workspace_switcher =
   plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+
 workspace_switcher.apply_to_config(config)
 
 config.font = wezterm.font("GeistMono Nerd Font")
@@ -15,7 +16,7 @@ config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.audible_bell = "Disabled"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-config.color_scheme = "carbonfox"
+config.color_scheme = "tokyonight"
 
 config.inactive_pane_hsb = {
   saturation = 1,
