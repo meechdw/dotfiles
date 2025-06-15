@@ -15,16 +15,7 @@ local function toggle_terminal(cmd)
     vim.cmd(":te")
   end
 
-  local bufname
-  if cmd ~= "" then
-    bufname = cmd
-  else
-    bufname = "terminal"
-  end
-
   local bufnr = vim.api.nvim_get_current_buf()
-  vim.api.nvim_buf_set_name(bufnr, bufname)
-
   vim.cmd(":startinsert")
   buffers[cmd] = bufnr
 end
