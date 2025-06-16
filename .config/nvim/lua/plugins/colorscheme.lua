@@ -34,5 +34,6 @@ return {
   config = function(_, opts)
     require("tokyonight").setup(opts)
     vim.cmd("colorscheme tokyonight")
+    vim.g.terminal_color_0 = "#737aa2"
   end,
 }
