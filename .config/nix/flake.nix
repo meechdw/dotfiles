@@ -53,11 +53,11 @@
               pkgs.dbeaver-bin
               pkgs.docker
               pkgs.doppler
+              pkgs.eza
               pkgs.fastfetch
               pkgs.fd
               pkgs.fzf
               pkgs.git
-              pkgs.ice-bar
               pkgs.lazygit
               pkgs.lftp
               pkgs.mkalias
@@ -75,6 +75,7 @@
               EDITOR = "nvim";
               DIRENV_WARN_TIMEOUT = "1m";
               GOPRIVATE = "bitbucket.org/wieckmedia/*";
+              EZA_CONFIG_DIR = "$HOME/.config/eza";
             };
             extraInit = ''
               export PATH="$HOME/.local/bin:$PATH"
@@ -88,7 +89,7 @@
 
           programs.direnv.enable = true;
 
-          fonts.packages = [ pkgs.nerd-fonts.geist-mono ];
+          fonts.packages = [ pkgs.nerd-fonts.blex-mono ];
 
           system = {
             primaryUser = "mitchell";
@@ -142,6 +143,7 @@
                     ".config/karabiner/karabiner.json".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
                     ".config/bat".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/bat";
+                    ".config/eza".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/eza";
                     ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/git";
                     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/nvim";
                     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/wezterm";
@@ -155,6 +157,7 @@
               "mas"
             ];
             casks = [
+              "cursor"
               "discord"
               "google-chrome"
               "karabiner-elements"

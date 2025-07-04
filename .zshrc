@@ -1,5 +1,7 @@
 alias cat="bat"
 alias cd="z"
+alias ls="eza -l"
+alias shell="nix-shell -p"
 alias vi="nvim"
 alias vim="nvim"
 
