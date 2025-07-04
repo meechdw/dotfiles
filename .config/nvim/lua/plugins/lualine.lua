@@ -49,7 +49,7 @@ return {
       },
       sections = {
         lualine_a = {
-          { "mode", color = { gui = "bold" } },
+          { "mode" },
         },
         lualine_b = {},
         lualine_c = {

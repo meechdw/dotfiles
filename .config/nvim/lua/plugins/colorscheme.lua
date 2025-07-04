@@ -26,9 +26,15 @@ return {
       hl.BlinkCmpLabel = { bg = "#101119" }
       hl.BlinkCmpLabelDetail = { fg = colors.dark5 }
       hl.BlinkCmpLabelDescription = { fg = colors.fg_dark }
-      hl.BlinkCmpSelection = { bg = colors.bg_highlight }
       hl.BlinkCmpDocBorder = { fg = colors.dark3 }
+      hl.BlinkCmpDocSeparator = { fg = colors.dark3 }
       hl.FlashCurrent = { bg = colors.blue0, fg = colors.fg }
+      hl.TelescopeNormal = { bg = colors.bg }
+      hl.TelescopeResults = { bg = colors.bg }
+      hl.TelescopePreview = { bg = colors.bg }
+      hl.TelescopePrompt = { bg = colors.bg }
+      hl.TelescopePromptCounter = { fg = colors.comment }
+      hl.TelescopeSelection = { bg = "#2c3147" }
     end,
   },
   config = function(_, opts)
