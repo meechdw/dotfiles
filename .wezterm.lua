@@ -9,7 +9,7 @@ local workspace_switcher =
 
 workspace_switcher.apply_to_config(config)
 
-config.font = wezterm.font("GeistMono Nerd Font")
+config.font = wezterm.font("BlexMono Nerd Font", { weight = "Medium" })
 config.font_size = 16
 config.native_macos_fullscreen_mode = true
 config.show_new_tab_button_in_tab_bar = false
