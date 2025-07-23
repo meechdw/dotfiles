@@ -20,6 +20,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    sst-homebrew-tap = {
+      url = "github:sst/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -30,6 +34,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      sst-homebrew-tap,
       ...
     }:
     let
@@ -45,7 +50,6 @@
 
           environment = {
             systemPackages = [
-              pkgs.aider-chat-full
               pkgs.awscli2
               pkgs.bat
               pkgs.bruno
@@ -53,20 +57,27 @@
               pkgs.dbeaver-bin
               pkgs.docker
               pkgs.doppler
+              pkgs.exiftool
               pkgs.eza
               pkgs.fastfetch
+              pkgs.ffmpeg_6-full
               pkgs.fd
               pkgs.fzf
               pkgs.git
+              pkgs.just
+              pkgs.lazydocker
               pkgs.lazygit
               pkgs.lftp
               pkgs.mkalias
               pkgs.neovim
               pkgs.nodejs_22
+              pkgs.ollama
               pkgs.raycast
               pkgs.ripgrep
               pkgs.starship
               pkgs.tokei
+              pkgs.vips
+              pkgs.vim
               pkgs.wezterm
               pkgs.yarn
               pkgs.zoxide
@@ -76,6 +87,27 @@
               DIRENV_WARN_TIMEOUT = "1m";
               GOPRIVATE = "bitbucket.org/wieckmedia/*";
               EZA_CONFIG_DIR = "$HOME/.config/eza";
+              FZF_DEFAULT_OPTS = ''
+                --highlight-line \
+                --ansi \
+                --border=none \
+                --color=bg+:#232639 \
+                --color=bg:#14151f \
+                --color=border:#27a1b9 \
+                --color=fg:#c0caf5 \
+                --color=gutter:#14151f \
+                --color=header:#ff9e64 \
+                --color=hl+:#2ac3de \
+                --color=hl:#2ac3de \
+                --color=info:#828ab0 \
+                --color=marker:#ff007c \
+                --color=pointer:#ff007c \
+                --color=prompt:#2ac3de \
+                --color=query:#c0caf5:regular \
+                --color=scrollbar:#27a1b9 \
+                --color=separator:#ff9e64 \
+                --color=spinner:#ff007c
+              '';
             };
             extraInit = ''
               export PATH="$HOME/.local/bin:$PATH"
@@ -99,7 +131,7 @@
               dock.autohide = true;
               dock.show-recents = false;
               dock.persistent-apps = [
-                "/Applications/Firefox.app"
+                "/Applications/Google Chrome.app"
                 "${pkgs.wezterm}/Applications/WezTerm.app"
                 "/Applications/Slack.app"
                 "/System/Applications/Mail.app"
@@ -133,18 +165,14 @@
                     dotfiles = "${config.home.homeDirectory}/src/dotfiles";
                   in
                   {
-                    ".aider.conf.yml".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.aider.conf.yml";
-                    ".aider.model.setting.yml".source =
-                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.aider.model.setting.yml";
-                    ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.wezterm.lua";
                     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zshrc";
-                    ".config/starship.toml".source =
-                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
-                    ".config/karabiner/karabiner.json".source =
-                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
                     ".config/bat".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/bat";
                     ".config/eza".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/eza";
-                    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/git";
+                    ".config/karabiner/karabiner.json".source =
+                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
+                    ".config/starship.toml".source =
+                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
+                    ".config/opencode".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/opencode";
                     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/nvim";
                     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/wezterm";
                   };
@@ -155,15 +183,17 @@
             enable = true;
             brews = [
               "mas"
+              "sst/homebrew-tap/opencode"
             ];
             casks = [
-              "cursor"
               "discord"
               "google-chrome"
               "karabiner-elements"
               "firefox"
+              "logitune"
               "slack"
               "spotify"
+              "visual-studio-code"
             ];
             onActivation = {
               cleanup = "zap";
@@ -188,6 +218,7 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
+                "sst/homebrew-tap" = sst-homebrew-tap;
               };
             };
           }

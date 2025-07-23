@@ -3,18 +3,26 @@
 add_newline = false
 
 format = '''
-$directory$git_branch$character
+$username:$shell:$directory:$git_branch $character
 '''
+
+[username]
+show_always = true
+format = "[$user]()"
+
+[shell]
+disabled = false
+format = "$indicator"
 
 [directory]
 truncate_to_repo = false
 truncation_length = 0
-style = "cyan"
+format = "[$path]()"
 
 [git_branch]
-format = "[\\[branch\\]](black) [$branch](purple) "
+format = "[$branch]()"
 symbol = ""
 
 [character]
-success_symbol = "[▶︎](green)"
-error_symbol = "[▶︎](red)"
+success_symbol = "[\\$](green)"
+error_symbol = "[\\$](green)"

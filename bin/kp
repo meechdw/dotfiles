@@ -3,19 +3,19 @@
 # Kills the process running on the specified port
 
 if [ "$#" -ne 1 ]; then
-    echo "Usage: kp <port-number>"
+    echo "Usage: kp <port>"
     exit 1
 fi
 
 PORT=$1
 
-PID=$(lsof -ti tcp:$PORT)
+PID=$(lsof -ti tcp:"$PORT")
 
 if [ -z "$PID" ]; then
     echo "No process found running on port $PORT."
     exit 1
 else
-    PROCESS_NAME=$(ps -p $PID -o comm=)
-    kill -9 $PID
+    PROCESS_NAME=$(ps -p "$PID" -o comm=)
+    kill -9 "$PID"
     echo "Killed process $PID ($PROCESS_NAME) running on port $PORT."
 fi

@@ -3,7 +3,7 @@
 # Execs into a running Docker container
 
 if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
-    echo "Usage: dx <container-name> [shell-type]"
+    echo "Usage: dx <container> [shell]"
     exit 1
 fi
 

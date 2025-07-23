@@ -14,7 +14,7 @@ return {
         },
       },
       cmdline = { enabled = false },
-      signature = { enabled = true },
+      signature = { enabled = false },
     },
   },
 }

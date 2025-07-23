@@ -1,4 +1,0 @@
-.direnv
-.aider*
-!.aider.conf.yml
-!.aider.model.setting.yml

@@ -11,8 +11,8 @@ return {
     on_colors = function(colors)
       colors.bg = "#14151f"
       colors.bg_dark = "#14151f"
-      colors.bg_highlight = "#212436"
-      colors.comment = "#6c77a3"
+      colors.bg_highlight = "#232639"
+      colors.comment = "#828ab0"
       colors.fg_gutter = "#30374f"
     end,
     on_highlights = function(hl, colors)
@@ -34,12 +34,14 @@ return {
       hl.TelescopePreview = { bg = colors.bg }
       hl.TelescopePrompt = { bg = colors.bg }
       hl.TelescopePromptCounter = { fg = colors.comment }
-      hl.TelescopeSelection = { bg = "#2c3147" }
+      hl.TelescopePromptPrefix = { fg = colors.orange }
+      hl.TelescopeSelection = { bg = colors.bg_highlight }
+      hl.RenderMarkdownCode = { bg = colors.bg_highlight }
+      hl.RenderMarkdownCodeInline = { bg = colors.bg_highlight }
     end,
   },
   config = function(_, opts)
     require("tokyonight").setup(opts)
     vim.cmd("colorscheme tokyonight")
-    vim.g.terminal_color_0 = "#737aa2"
   end,
 }

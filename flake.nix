@@ -21,10 +21,12 @@
         {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
+              bash-language-server
               lua-language-server
               nixd
               nixfmt-rfc-style
               nodePackages.vscode-json-languageserver
+              prettierd
               stylua
               taplo
               yaml-language-server

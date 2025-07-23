@@ -3,8 +3,6 @@
     "version": "LuaJIT"
   },
   "diagnostics": {
-    "globals": [
-      "vim"
-    ]
+    "globals": ["vim"]
   }
 }

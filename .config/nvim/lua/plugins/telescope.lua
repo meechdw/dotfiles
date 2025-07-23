@@ -14,25 +14,9 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
     { "<leader>fr", "<cmd>Telescope lsp_references<cr>" },
     { "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<cr>" },
-    {
-      "<leader>fm",
-      function()
-        require("telescope").extensions.metals.commands()
-      end,
-    },
-    {
-      "<leader>fw",
-      function()
-        require("telescope.extensions").metals.commands()
-      end,
-    },
   },
   opts = {
     extensions = { fzf = {} },
-    defaults = {
-      prompt_prefix = "▶︎ ",
-      selection_caret = "▶︎ ",
-    },
     pickers = {
       find_files = {
         previewer = false,

@@ -1,8 +1,8 @@
-alias cat="bat"
+alias cat="bat --style=numbers"
 alias cd="z"
-alias ls="eza -l"
-alias shell="nix-shell -p"
-alias vi="nvim"
+alias ls="eza -la"
+alias lzd="lazydocker"
+alias lzg="lazygit"
 alias vim="nvim"
 
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -33,5 +33,5 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 for key in $(security dump-keychain | grep ENV_ | awk -F'=' '{print $2}' | tr -d '"' | sort -u); do
-  export ${key#ENV_}="$(security find-generic-password -s "$key" -w)"
+  export "${key#ENV_}"="$(security find-generic-password -s "$key" -w)"
 done

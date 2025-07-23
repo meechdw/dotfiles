@@ -10,5 +10,5 @@ if [ -z "$containers" ]; then
 fi
 
 echo "Stopping all running Docker containers..."
-docker stop $containers
+docker stop "$containers"
 echo "All running Docker containers have been stopped."

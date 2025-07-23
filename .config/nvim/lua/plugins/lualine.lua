@@ -13,8 +13,8 @@ return {
     end
 
     local theme = require("lualine.themes.tokyonight")
-    local bg = "#212436"
-    local fg = "#a9b1d6"
+    local bg = "#283457"
+    local fg = "#c0caf5"
 
     theme.normal.a.fg = fg
     theme.normal.a.bg = bg
