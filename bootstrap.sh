@@ -69,8 +69,6 @@ ssh-add ~/.ssh/id_ed25519
 git config --global user.name "Mitchell Wilson"
 git config --global user.email "mitchelldw01@gmail.com"
 
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
 bat cache --build
 
 echo -e "\nBootstrap complete. Reboot your system."
