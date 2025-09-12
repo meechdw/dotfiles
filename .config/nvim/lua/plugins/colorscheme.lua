@@ -4,13 +4,9 @@ return {
   priority = 1000,
   opts = {
     flavour = "mocha",
-    no_italic = false,
-    no_bold = false,
-    no_underline = false,
-    styles = {
-      comments = {},
-      conditionals = {},
-    },
+    no_italic = true,
+    no_bold = true,
+    no_underline = true,
     float = {
       transparent = true,
       solid = true,
