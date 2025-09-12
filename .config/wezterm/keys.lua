@@ -18,7 +18,7 @@ return {
       action.SendKey({ key = "l", mods = "CTRL" }),
     }),
   },
-  { key = "v", mods = "CTRL", action = action.ActivateCopyMode },
+  { key = "y", mods = "CMD", action = action.ActivateCopyMode },
   {
     key = "o",
     mods = "CMD",

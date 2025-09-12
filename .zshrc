@@ -1,6 +1,6 @@
-alias cat="bat --style=numbers"
+alias cat="bat"
 alias cd="z"
-alias ls="eza -la"
+alias ls="ls -lah --color=auto"
 alias lzd="lazydocker"
 alias lzg="lazygit"
 alias vim="nvim"

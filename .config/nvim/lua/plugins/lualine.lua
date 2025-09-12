@@ -12,47 +12,17 @@ return {
       return ""
     end
 
-    local theme = require("lualine.themes.tokyonight")
-    local bg = "#283457"
-    local fg = "#c0caf5"
-
-    theme.normal.a.fg = fg
-    theme.normal.a.bg = bg
-    theme.normal.c.fg = fg
-    theme.normal.c.bg = bg
-
-    theme.command.a.fg = fg
-    theme.command.a.bg = bg
-
-    theme.inactive.a.fg = fg
-    theme.inactive.a.bg = bg
-    theme.inactive.c.fg = fg
-    theme.inactive.c.bg = bg
-
-    theme.insert.a.fg = fg
-    theme.insert.a.bg = bg
-
-    theme.replace.a.fg = fg
-    theme.replace.a.bg = bg
-
-    theme.terminal.a.fg = fg
-    theme.terminal.a.bg = bg
-
-    theme.visual.a.fg = fg
-    theme.visual.a.bg = bg
-
     require("lualine").setup({
       options = {
-        theme = theme,
         component_separators = "",
         section_separators = "",
       },
       sections = {
-        lualine_a = {
-          { "mode" },
-        },
+        lualine_a = {},
         lualine_b = {},
         lualine_c = {
+          { "mode", color = { gui = "bold" } },
+          "branch",
           { "filename", path = 1 },
         },
         lualine_x = { "searchcount", get_lsp_status, "location" },

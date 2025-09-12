@@ -1,1 +1,2 @@
---theme="tokyonight"
+--style=plain,numbers
+--theme="catppuccin_mocha"

@@ -53,17 +53,19 @@
               pkgs.awscli2
               pkgs.bat
               pkgs.bruno
+              pkgs.claude-code
               pkgs.colima
               pkgs.dbeaver-bin
               pkgs.docker
               pkgs.doppler
               pkgs.exiftool
-              pkgs.eza
               pkgs.fastfetch
               pkgs.ffmpeg_6-full
               pkgs.fd
               pkgs.fzf
               pkgs.git
+              pkgs.jira-cli-go
+              pkgs.jq
               pkgs.just
               pkgs.lazydocker
               pkgs.lazygit
@@ -86,27 +88,12 @@
               EDITOR = "nvim";
               DIRENV_WARN_TIMEOUT = "1m";
               GOPRIVATE = "bitbucket.org/wieckmedia/*";
-              EZA_CONFIG_DIR = "$HOME/.config/eza";
               FZF_DEFAULT_OPTS = ''
-                --highlight-line \
-                --ansi \
-                --border=none \
-                --color=bg+:#232639 \
-                --color=bg:#14151f \
-                --color=border:#27a1b9 \
-                --color=fg:#c0caf5 \
-                --color=gutter:#14151f \
-                --color=header:#ff9e64 \
-                --color=hl+:#2ac3de \
-                --color=hl:#2ac3de \
-                --color=info:#828ab0 \
-                --color=marker:#ff007c \
-                --color=pointer:#ff007c \
-                --color=prompt:#2ac3de \
-                --color=query:#c0caf5:regular \
-                --color=scrollbar:#27a1b9 \
-                --color=separator:#ff9e64 \
-                --color=spinner:#ff007c
+                --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+                --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+                --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+                --color=selected-bg:#45475A \
+                --color=border:#6C7086,label:#CDD6F4
               '';
             };
             extraInit = ''
@@ -121,7 +108,7 @@
 
           programs.direnv.enable = true;
 
-          fonts.packages = [ pkgs.nerd-fonts.blex-mono ];
+          fonts.packages = [ pkgs.nerd-fonts.geist-mono ];
 
           system = {
             primaryUser = "mitchell";
@@ -167,7 +154,6 @@
                   {
                     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zshrc";
                     ".config/bat".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/bat";
-                    ".config/eza".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/eza";
                     ".config/karabiner/karabiner.json".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
                     ".config/starship.toml".source =
