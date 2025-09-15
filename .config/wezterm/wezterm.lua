@@ -13,10 +13,10 @@ config.audible_bell = "Disabled"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.inactive_pane_hsb = { saturation = 1, brightness = 1 }
 
-local scheme = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-scheme.ansi[1] = "#9399b2"
-scheme.ansi[6] = "#cba6f7"
-scheme.brights[1] = "#9399b2"
+local scheme = wezterm.color.get_builtin_schemes()["Catppuccin Macchiato"]
+scheme.ansi[1] = "#939ab7"
+scheme.ansi[6] = "#c6a0f6"
+scheme.brights[1] = "#939ab7"
 
 config.colors = scheme
 config.colors.split = "#585b70"

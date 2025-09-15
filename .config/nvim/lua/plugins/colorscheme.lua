@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    flavour = "mocha",
+    flavour = "macchiato",
     no_italic = true,
     no_bold = true,
     no_underline = true,
@@ -16,6 +16,14 @@ return {
         LineNr = { fg = colors.surface2 },
         WinSeparator = { link = "FloatBorder" },
         NeoTreeWinSeparator = { link = "WinSeparator" },
+        BlinkCmpMenu = { link = "Normal" },
+        BlinkCmpMenuBorder = { link = "FloatBorder" },
+        BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
+        BlinkCmpDocBorder = { link = "FloatBorder" },
+        BlinkCmpDocSeparator = { link = "FloatBorder" },
+        BlinkCmpLabel = { link = "Normal" },
+        BlinkCmpLabelDetail = { link = "Comment" },
+        BlinkCmpLabelDescription = { link = "Comment" },
       }
     end,
   },

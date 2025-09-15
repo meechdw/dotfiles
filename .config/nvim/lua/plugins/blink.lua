@@ -3,7 +3,10 @@ return {
     "saghen/blink.cmp",
     version = "v0.*",
     opts = {
-      keymap = { preset = "super-tab" },
+      keymap = {
+        preset = "super-tab",
+        ["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
+      },
       sources = {
         default = { "lsp", "path", "buffer" },
         providers = {
