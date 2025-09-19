@@ -7,8 +7,6 @@ bin="/run/current-system/sw/bin"
 mkdir -p ~/src
 cd ~/src
 
-softwareupdate --install-rosetta
-
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
 
 git clone https://github.com/meechdw/dotfiles.git

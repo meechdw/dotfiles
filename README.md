@@ -12,6 +12,12 @@ First, install the XCode Command Line Tools:
 xcode-select --install
 ```
 
+Install Rosetta:
+
+```bash
+softwareupdate --install-rosetta
+```
+
 Give full disk access to the terminal: `System Settings` >
 `Privacy & Security` > `Full Disk Access`.
 
