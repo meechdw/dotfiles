@@ -24,6 +24,9 @@
       url = "github:sst/homebrew-tap";
       flake = false;
     };
+    encore = {
+      url = "git+ssh://git@github.com/meechdw/encore.git";
+    };
   };
 
   outputs =
@@ -35,6 +38,7 @@
       homebrew-core,
       homebrew-cask,
       sst-homebrew-tap,
+      encore,
       ...
     }:
     let
@@ -58,6 +62,7 @@
               pkgs.dbeaver-bin
               pkgs.docker
               pkgs.doppler
+              encore.packages.${pkgs.system}.default
               pkgs.exiftool
               pkgs.fastfetch
               pkgs.ffmpeg_6-full
