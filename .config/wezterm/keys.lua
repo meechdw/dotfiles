@@ -48,5 +48,9 @@ return {
   { key = "k", mods = "CMD|SHIFT", action = action.ActivatePaneDirection("Up") },
   { key = "Enter", mods = "OPT", action = action.DisableDefaultAssignment },
   { key = "=", mods = "CTRL", action = action.DisableDefaultAssignment },
+  { key = "LeftArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Left", 5 }) },
+  { key = "RightArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Right", 5 }) },
+  { key = "UpArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Up", 5 }) },
+  { key = "DownArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Down", 5 }) },
   { key = "-", mods = "CTRL", action = action.DisableDefaultAssignment },
 }
