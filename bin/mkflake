@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+  echo "Usage: mkflake <package...>"
+  exit 1
+fi
+
+packages=("$@")
+
+build_inputs=""
+for pkg in "${packages[@]}"; do
+  build_inputs+="            ${pkg}\n"
+done
+
+cat > flake.nix << EOF
+{
+  description = "Development environment";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.\${system};
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+$(echo -e "${build_inputs}")          ];
+        };
+      }
+    );
+}
+EOF
+
+echo "Created flake.nix with packages: ${packages[*]}"
