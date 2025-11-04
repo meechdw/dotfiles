@@ -13,6 +13,7 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 7
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
+vim.opt.swapfile = false
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-TermCursor"
 
 require("config.lazy")
