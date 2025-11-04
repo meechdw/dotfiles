@@ -30,7 +30,7 @@ return {
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
-            checkOnSave = { command = "clippy" },
+            checkOnSave = true,
             completion = {
               callable = {
                 snippets = "none",
