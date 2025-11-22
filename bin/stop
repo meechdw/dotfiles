@@ -2,6 +2,8 @@
 
 # Stops all running Docker containers
 
+set -e
+
 containers=$(docker ps -q)
 
 if [ -z "$containers" ]; then
@@ -10,5 +12,7 @@ if [ -z "$containers" ]; then
 fi
 
 echo "Stopping all running Docker containers..."
-docker stop "$containers"
+# Word splitting is intended for multiple container IDs.
+# shellcheck disable=SC2086  
+docker stop $containers
 echo "All running Docker containers have been stopped."

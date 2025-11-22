@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local opts = require("opts")
 
 vim.keymap.set("n", "<leader>j", "<C-^>", opts)
 vim.keymap.set("v", "<leader>p", '"_dP', opts)
@@ -17,14 +17,14 @@ vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<cr>", opts)
 
 vim.keymap.set("n", "<leader>s", "<cmd>vsplit<cr><C-w>l", opts)
 
-vim.keymap.set("n", "<leader>r", "<cmd>LspRestart<cr>")
-vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
-vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
-vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
+local jump = function(count)
+  return function()
+    vim.diagnostic.jump({ count = count })
+  end
+end
 
-vim.keymap.set("n", "dn", vim.diagnostic.goto_next)
-vim.keymap.set("n", "dp", vim.diagnostic.goto_next)
+vim.keymap.set("n", "dn", jump(1), opts)
+vim.keymap.set("n", "dp", jump(-1), opts)
 vim.keymap.set("n", "do", vim.diagnostic.open_float, opts)
 
 vim.keymap.set("n", "<leader>w", function()
@@ -39,8 +39,4 @@ vim.keymap.set("n", "<leader>w", function()
   end
 
   vim.api.nvim_command("bp|sp|bn|bd")
-end, opts)
-
-vim.keymap.set("n", "<leader>tc", function()
-  print(vim.inspect(vim.treesitter.get_captures_at_cursor()))
 end, opts)

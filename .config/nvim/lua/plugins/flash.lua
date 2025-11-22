@@ -1,17 +1,14 @@
-return {
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  keys = {
-    { "s", mode = { "n", "v", "x", "o" }, "<cmd>lua require('flash').jump()<cr>" },
-    { "r", mode = { "o" }, "<cmd>lua require('flash').remote()<cr>" },
-    { "L", mode = { "n", "x", "o" }, "<cmd>lua require('flash').treesitter()<cr>" },
+require("flash").setup({
+  modes = {
+    char = { enabled = false },
   },
-  opts = {
-    modes = {
-      char = { enabled = false },
-    },
-    prompt = {
-      enabled = false,
-    },
+  prompt = {
+    enabled = false,
   },
-}
+})
+
+local opts = require("opts")
+
+vim.keymap.set({ "n", "v", "x", "o" }, "s", "<cmd>lua require('flash').jump()<cr>", opts)
+vim.keymap.set("o", "r", "<cmd>lua require('flash').remote()<cr>", opts)
+vim.keymap.set({ "n", "v", "x", "o" }, "L", "<cmd>lua require('flash').treesitter()<cr>", opts)

@@ -19,17 +19,6 @@ return {
     }),
   },
   { key = "y", mods = "CMD", action = action.ActivateCopyMode },
-  {
-    key = "o",
-    mods = "CMD",
-    action = action.SwitchToWorkspace({
-      name = "ollama",
-      spawn = {
-        args = { "zsh", "-c", "ollama serve" },
-        cwd = os.getenv("HOME"),
-      },
-    }),
-  },
   { key = "w", mods = "CMD", action = action.CloseCurrentTab({ confirm = false }) },
   { key = "LeftArrow", mods = "CMD|SHIFT", action = action.MoveTabRelative(-1) },
   { key = "RightArrow", mods = "CMD|SHIFT", action = action.MoveTabRelative(1) },
@@ -47,7 +36,6 @@ return {
   { key = "j", mods = "CMD|SHIFT", action = action.ActivatePaneDirection("Down") },
   { key = "k", mods = "CMD|SHIFT", action = action.ActivatePaneDirection("Up") },
   { key = "Enter", mods = "OPT", action = action.DisableDefaultAssignment },
-  { key = "=", mods = "CTRL", action = action.DisableDefaultAssignment },
   { key = "LeftArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Left", 5 }) },
   { key = "RightArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Right", 5 }) },
   { key = "UpArrow", mods = "CMD|CTRL", action = action.AdjustPaneSize({ "Up", 5 }) },

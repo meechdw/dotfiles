@@ -36,7 +36,6 @@ Manually configure the following settings:
 - Enable Night Shift: `System Settings` > `Displays` > `Night Shift`.
 - Disable hotkey for Spotlight: `System Settings` > `Keyboard` >
   `Keyboard shortcuts` > `Spotlight`.
-- Update desktop wallpaper: `System Settings` > `Wallpaper`.
 
 Run the `Import Preferences & Data` command in
 [Raycast](https://www.raycast.com) to import
@@ -47,7 +46,7 @@ Run the
 application installer:
 
 ```bash
-open /opt/homebrew/Caskroom/logitune/3.10.120/LogiTuneInstaller.app
+open /opt/homebrew/Caskroom/logitune/<version>/LogiTuneInstaller.app
 ```
 
 Lastly, reboot the machine.

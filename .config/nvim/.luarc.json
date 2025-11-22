@@ -3,6 +3,13 @@
     "version": "LuaJIT"
   },
   "diagnostics": {
-    "globals": ["vim"]
+    "globals": ["Snacks"]
+  },
+  "workspace": {
+    "library": [
+      "$VIMRUNTIME/lua",
+      "${3rd}/luv/library"
+    ],
+    "checkThirdParty": false
   }
 }

@@ -26,11 +26,9 @@ end
 
 local function get_workspaces()
   local workspaces = {}
-
   for _, workspace in pairs(mux.get_workspace_names()) do
     workspaces[workspace] = true
   end
-
   return workspaces
 end
 

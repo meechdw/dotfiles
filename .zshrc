@@ -1,7 +1,6 @@
-alias cat="bat"
+# shellcheck disable=all
 alias cd="z"
 alias ls="ls -lah --color=auto"
-alias lzd="lazydocker"
 alias lzg="lazygit"
 alias vim="nvim"
 
@@ -19,6 +18,7 @@ autoload -Uz _zinit
 
 zinit ice depth=1; zinit light zsh-users/zsh-syntax-highlighting
 zinit ice depth=1; zinit light zsh-users/zsh-autosuggestions
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY

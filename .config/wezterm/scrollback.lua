@@ -21,7 +21,7 @@ end
 function M.send_to_fzf()
   return wezterm.action_callback(function(window, pane)
     local filename = dump_scrollback_to_file(window, pane)
-    pane:send_text("fzf < " .. filename .. "\n")
+    pane:send_text("fzf < " .. filename .. "; rm " .. filename .. "\n")
   end)
 end
 
@@ -35,7 +35,10 @@ function M.send_to_nvim()
           args = {
             "zsh",
             "-c",
-            "nvim -c 'set noswapfile | set buftype=nofile | set bufhidden=wipe' " .. filename,
+            "nvim -c 'set noswapfile | set buftype=nofile | set bufhidden=wipe | autocmd VimLeave * call delete(\""
+              .. filename
+              .. "\")' "
+              .. filename,
           },
         },
       }),

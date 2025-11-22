@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Kills the process running on the specified port
+# Usage: kp <port>
 
 if [ "$#" -ne 1 ]; then
     echo "Usage: kp <port>"

@@ -1,20 +1,131 @@
 #!/usr/bin/env bash
 
+# Generates a `flake.nix` file. The `generate` command will create a list of all
+# Nix packages to be used for package selection. If the file already exists then it
+# will be updated.
+#
+# Usage: mkflake [generate]
+
 set -e
 
-if [ $# -eq 0 ]; then
-  echo "Usage: mkflake <package...>"
+cache_file="$HOME/.cache/nixpkgs-list.txt"
+
+if [ $# -eq 1 ] && [ "$1" = "generate" ]; then
+  echo "Generating nixpkgs list..."
+  mkdir -p "$(dirname "$cache_file")"
+  nix search nixpkgs '^' --json | jq -r 'keys[]' | sed 's/^legacyPackages\.[^.]*\.//' > "$cache_file"
+  echo "Package list saved to $cache_file"
+  exit 0
+fi
+
+if [ $# -ne 0 ]; then
+  echo "Usage: mkflake [generate]"
   exit 1
 fi
 
-packages=("$@")
+if [ -f flake.nix ]; then
+  echo -e "\033[1;31merror:\033[0m flake.nix already exists in this directory"
+  exit 1
+fi
+
+if [ ! -f "$cache_file" ]; then
+  echo "Package list not found. Generating..."
+  mkdir -p "$(dirname "$cache_file")"
+  nix search nixpkgs '^' --json | jq -r 'keys[]' | sed 's/^legacyPackages\.[^.]*\.//' > "$cache_file"
+  echo "Package list saved to $cache_file"
+fi
+
+read -r -p "Should this flake produce a package? (y/N) " produce_package
+if [[ "$produce_package" =~ ^[Yy]$ ]]; then
+  read -r -p "Package name: " pname
+  read -r -p "Description: " description
+  read -r -p "Homepage: " homepage
+  read -r -p "License: " license
+  mapfile -t build_inputs_array < <(fzf -m --prompt "Build inputs: " < "$cache_file")
+fi
+
+mapfile -t selected_packages < <(fzf -m --prompt "Development environment: " < "$cache_file")
+
+default_packages=("git" "nixd" "nixfmt-rfc-style")
+all_packages=("${default_packages[@]}" "${selected_packages[@]}")
+
+declare -A seen
+packages=()
+for pkg in "${all_packages[@]}"; do
+  if [ -z "${seen[$pkg]}" ]; then
+    seen[$pkg]=1
+    packages+=("$pkg")
+  fi
+done
 
 build_inputs=""
 for pkg in "${packages[@]}"; do
   build_inputs+="            ${pkg}\n"
 done
 
-cat > flake.nix << EOF
+if [[ "$produce_package" =~ ^[Yy]$ ]]; then
+  meta_fields=""
+  [ -n "$description" ] && meta_fields+="              description = \"$description\";\n"
+  [ -n "$homepage" ] && meta_fields+="              homepage = \"$homepage\";\n"
+  [ -n "$license" ] && meta_fields+="              license = licenses.$license;\n"
+  meta_fields+="              platforms = platforms.all;\n"
+  meta_fields+="              mainProgram = \"$pname\";"
+
+  build_inputs_section=""
+  if [ ${#build_inputs_array[@]} -gt 0 ]; then
+    build_inputs_section+="            buildInputs = with pkgs; [\n"
+    for pkg in "${build_inputs_array[@]}"; do
+      build_inputs_section+="              ${pkg}\n"
+    done
+    build_inputs_section+="            ];"
+  fi
+
+  cat > flake.nix << EOF
+{
+  description = "Development environment";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.\${system};
+        version = "0.0.0";
+      in
+      {
+        packages = {
+          default = pkgs.stdenv.mkDerivation {
+            inherit version;
+            pname = "$pname";
+            src = ./.;$([ -n "${build_inputs_section}" ] && echo -e "\n${build_inputs_section}")
+            meta = with pkgs.lib; {
+$(echo -e "${meta_fields}")
+            };
+          };
+
+          $pname = self.packages.\${system}.default;
+        };
+
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+$(echo -e "${build_inputs}")
+          ];
+        };
+      }
+    );
+}
+EOF
+else
+  cat > flake.nix << EOF
 {
   description = "Development environment";
 
@@ -37,11 +148,18 @@ cat > flake.nix << EOF
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-$(echo -e "${build_inputs}")          ];
+$(echo -e "${build_inputs}")
+          ];
         };
       }
     );
 }
 EOF
+fi
 
-echo "Created flake.nix with packages: ${packages[*]}"
+echo "Created flake.nix"
+
+if [ ! -f .envrc ]; then
+  echo "use flake" > .envrc
+  echo "Created .envrc"
+fi
