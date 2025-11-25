@@ -7,7 +7,7 @@ brew_update:
     sudo nix flake update homebrew-core homebrew-cask --flake .config/nix
 
 pack_uninstall_all:
-    rm ~/.config/nvim/nvim-pack-lock.json
+    rm -rf ~/.local/share/nvim/site/pack/core/opt
 
 nix_update:
     sudo nix flake update --flake .config/nix
