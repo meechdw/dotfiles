@@ -5,16 +5,7 @@ require("snacks").setup({
       width = 0,
     },
   },
-  picker = {
-    layout = "telescope",
-    sources = {
-      explorer = {
-        diagnostics = false,
-        git_status = false,
-        git_untracked = false,
-      },
-    },
-  },
+  picker = { layout = "telescope" },
   input = {},
   terminal = {},
 })
@@ -36,6 +27,7 @@ local snacks_wrapper = function(fn, config)
   end
 end
 
+vim.keymap.set("n", "<leader>gg", snacks_wrapper(Snacks.lazygit), opts)
 vim.keymap.set("n", "<leader>ff", snacks_wrapper(Snacks.picker.files, { hidden = true }), opts)
 vim.keymap.set("n", "<leader>fb", snacks_wrapper(Snacks.picker.buffers, { hidden = true }), opts)
 vim.keymap.set("n", "<leader>fg", snacks_wrapper(Snacks.picker.grep, { hidden = true }), opts)
@@ -45,5 +37,3 @@ vim.keymap.set(
   snacks_wrapper(Snacks.picker.diagnostics, { hidden = true }),
   opts
 )
-vim.keymap.set("n", "<leader>ft", snacks_wrapper(Snacks.explorer, { hidden = true }), opts)
-vim.keymap.set("n", "<leader>gg", snacks_wrapper(Snacks.lazygit), opts)

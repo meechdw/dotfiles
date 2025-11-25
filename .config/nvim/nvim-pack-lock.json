@@ -12,6 +12,10 @@
       "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
       "src": "https://github.com/folke/flash.nvim"
     },
+    "fyler.nvim": {
+      "rev": "bb8b9f30c652c948d35211958b0deec3496bcc08",
+      "src": "https://github.com/A7Lavinraj/fyler.nvim"
+    },
     "gruvbox-material": {
       "rev": "4bfc6983abc249c5943a60d8eb3980a3c2ababe1",
       "src": "https://github.com/sainnhe/gruvbox-material"
@@ -35,10 +39,6 @@
     "nvim-treesitter": {
       "rev": "42fc28ba918343ebfd5565147a42a26580579482",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
-    "oil.nvim": {
-      "rev": "7e1cd7703ff2924d7038476dcbc04b950203b902",
-      "src": "https://github.com/stevearc/oil.nvim"
     },
     "opencode.nvim": {
       "rev": "03f6fcbc663b6bb1b806653c1de66b154e7bbc91",

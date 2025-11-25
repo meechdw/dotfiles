@@ -8,10 +8,10 @@ vim.pack.add({
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/stevearc/oil.nvim",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/supermaven-inc/supermaven-nvim",
   "https://github.com/NickvanDyke/opencode.nvim",
+  "https://github.com/A7Lavinraj/fyler.nvim",
 })
 
 local plugins_dir = vim.fn.stdpath("config") .. "/lua/plugins"

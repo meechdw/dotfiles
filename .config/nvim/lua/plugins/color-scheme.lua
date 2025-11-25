@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "SnacksPickerBoxCursorLine", { link = "Visual" })
     vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { link = "Visual" })
     vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "FylerIndentMarker", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "BlinkCmpMenu", { link = "Normal" })
     vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { link = "Visual" })
     vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { link = "FloatBorder" })
