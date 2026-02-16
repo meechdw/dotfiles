@@ -31,6 +31,13 @@ vim.keymap.set("n", "<leader>gg", snacks_wrapper(Snacks.lazygit), opts)
 vim.keymap.set("n", "<leader>ff", snacks_wrapper(Snacks.picker.files, { hidden = true }), opts)
 vim.keymap.set("n", "<leader>fb", snacks_wrapper(Snacks.picker.buffers, { hidden = true }), opts)
 vim.keymap.set("n", "<leader>fg", snacks_wrapper(Snacks.picker.grep, { hidden = true }), opts)
+vim.keymap.set("n", "<leader>ft", snacks_wrapper(Snacks.explorer, { hidden = true }), opts)
+vim.keymap.set(
+  "n",
+  "<leader>fr",
+  snacks_wrapper(Snacks.picker.lsp_references, { hidden = true }),
+  opts
+)
 vim.keymap.set(
   "n",
   "<leader>fd",
