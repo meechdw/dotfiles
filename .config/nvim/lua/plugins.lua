@@ -11,7 +11,7 @@ vim.pack.add({
   "https://github.com/folke/snacks.nvim",
   "https://github.com/supermaven-inc/supermaven-nvim",
   "https://github.com/NickvanDyke/opencode.nvim",
-  "https://github.com/A7Lavinraj/fyler.nvim",
+  "https://github.com/stevearc/oil.nvim",
 })
 
 local plugins_dir = vim.fn.stdpath("config") .. "/lua/plugins"

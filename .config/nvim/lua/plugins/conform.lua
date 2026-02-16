@@ -1,10 +1,15 @@
 require("conform").setup({
   formatters_by_ft = {
     cmake = { "cmake_format" },
+    css = { "prettierd" },
     go = { "goimports", "gofumpt" },
-    javascript = { "prettierd" },
+    html = { "prettierd" },
+    javascript = { "eslint_d", "prettierd" },
+    javascriptreact = { "eslint_d", "prettierd" },
     json = { "prettierd" },
-    typescript = { "prettierd" },
+    jsonc = { "prettierd" },
+    typescript = { "eslint_d", "prettierd" },
+    typescriptreact = { "eslint_d", "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd" },
     nix = { "nixfmt" },

@@ -3,27 +3,63 @@
 -- environment.
 local servers = {
   { "bashls", "bash-language-server" },
-  { "docker_compose_language_service", "docker-compose-langserver" },
-  { "dockerls", "docker-langserver" },
+  "biome",
+  { "cssls", "vscode-css-language-server" },
+  { "docker_language_server", "docker-language-server" },
+  -- { "docker_compose_language_service", "docker-compose-langserver" },
+  -- { "dockerls", "docker-langserver" },
+  { "eslint", "vscode-eslint-language-server" },
   "gopls",
   { "html", "vscode-html-language-server" },
+  { "jsonls", "vscode-json-language-server" },
   { "jsonls", "vscode-json-languageserver" },
+  { "just", "just-lsp" },
   { "lua_ls", "lua-language-server" },
   { "neocmake", "neocmakelsp" },
   "nixd",
   { "rust_analyzer", "rust-analyzer" },
   "taplo",
+  "templ",
   { "ts_ls", "typescript-language-server" },
   { "yamlls", "yaml-language-server" },
   "zls",
 }
 
+vim.filetype.add({
+  pattern = {
+    ["%.env[%.%w_.-]*"] = "sh",
+  },
+})
+
 local configs = {
   bashls = {
     filetypes = { "ash", "bash", "env", "sh", "zsh" },
+    handlers = {
+      ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+        local uri = result.uri
+        local fname = vim.uri_to_fname(uri)
+        local filename = vim.fn.fnamemodify(fname, ":t")
+
+        if filename:match("^%.env$") or filename:match("^%.env%.") then
+          return
+        end
+
+        vim.lsp.handlers["textDocument/publishDiagnostics"](err, result, ctx, config)
+      end,
+    },
   },
   clangd = {
     cmd = { "clangd", "--offset-encoding=utf-16", "--function-arg-placeholders=0" },
+  },
+  gopls = {
+    settings = {
+      gopls = {
+        staticcheck = true,
+        analyses = {
+          ST1000 = false,
+        },
+      },
+    },
   },
   rust_analyzer = {
     settings = {
@@ -36,9 +72,6 @@ local configs = {
         },
       },
     },
-  },
-  jsonls = {
-    cmd = { "vscode-json-languageserver", "--stdio" },
   },
 }
 
