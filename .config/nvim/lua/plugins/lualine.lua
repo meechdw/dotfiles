@@ -2,11 +2,12 @@ local function get_lsp_status()
   local bufnr = vim.api.nvim_get_current_buf()
   local clients = vim.lsp.get_clients({ bufnr = bufnr })
 
-  if #clients > 0 then
-    return clients[1].name
-  end
-
-  return ""
+  return table.concat(
+    vim.tbl_map(function(client)
+      return client.name
+    end, clients),
+    " "
+  )
 end
 
 require("lualine").setup({
