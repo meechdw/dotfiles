@@ -84,7 +84,6 @@
             variables = {
               EDITOR = "nvim";
               DIRENV_WARN_TIMEOUT = "1m";
-              DOCKER_HOST = "unix:///tmp/docker.sock";
               FZF_DEFAULT_OPTS = ''
                 --color=bg+:#45403d,bg:#282828,spinner:#d3869b,hl:#a9b665 \
                 --color=fg:#d4be98,header:#ea6962,info:#d8a657,pointer:#ea6962 \

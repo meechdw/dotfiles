@@ -3,6 +3,9 @@ alias p := pack_uninstall_all
 alias n := nix_update
 alias r := rebuild
 
+default:
+    just --list
+
 brew_update:
     sudo nix flake update homebrew-core homebrew-cask --flake .config/nix
 
