@@ -65,10 +65,12 @@
               pkgs.fastfetch
               pkgs.fd
               pkgs.fzf
+              pkgs.gh
               pkgs.git
+              pkgs.git-lfs
               pkgs.jq
-              pkgs.just
               pkgs.lazygit
+              pkgs.ngrok
               pkgs.neovim
               pkgs.raycast
               pkgs.ripgrep
@@ -76,11 +78,13 @@
               pkgs.tokei
               pkgs.vim
               pkgs.wezterm
+              pkgs.ssm-session-manager-plugin
               pkgs.zoxide
             ];
             variables = {
               EDITOR = "nvim";
               DIRENV_WARN_TIMEOUT = "1m";
+              DOCKER_HOST = "unix:///tmp/docker.sock";
               FZF_DEFAULT_OPTS = ''
                 --color=bg+:#45403d,bg:#282828,spinner:#d3869b,hl:#a9b665 \
                 --color=fg:#d4be98,header:#ea6962,info:#d8a657,pointer:#ea6962 \
@@ -168,11 +172,15 @@
               "sst/homebrew-tap/opencode"
             ];
             casks = [
+              "dbeaver-community"
               "discord"
               "firefox"
               "google-chrome"
+              "google-cloud-sdk"
               "karabiner-elements"
+              "libreoffice"
               "logitune"
+              "slack"
               "spotify"
             ];
             onActivation = {

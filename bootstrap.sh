@@ -57,8 +57,7 @@ ssh-add ~/.ssh/id_ed25519
 
 git config --global user.name "Mitchell Wilson"
 git config --global user.email "mitchelldw01@gmail.com"
-
-opencode auth login
+git lfs install
 
 echo -e "\nBootstrap complete. Reboot your system."
 
