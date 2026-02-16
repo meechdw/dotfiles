@@ -58,6 +58,7 @@
           environment = {
             systemPackages = [
               pkgs.awscli2
+              pkgs.claude-code
               pkgs.colima
               pkgs.docker
               pkgs.doppler
@@ -148,6 +149,7 @@
                   in
                   {
                     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zshrc";
+                    ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/git";
                     ".config/starship.toml".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
                     ".config/karabiner/karabiner.json".source =
