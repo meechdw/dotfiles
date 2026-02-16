@@ -22,6 +22,7 @@
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
               bash-language-server
+              just
               lua-language-server
               nixd
               nixfmt-rfc-style
