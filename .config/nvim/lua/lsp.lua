@@ -17,6 +17,7 @@ local servers = {
   { "lua_ls", "lua-language-server" },
   { "neocmake", "neocmakelsp" },
   "nixd",
+  { "postgres_lsp", "postgres-language-server" },
   { "rust_analyzer", "rust-analyzer" },
   "taplo",
   "templ",
