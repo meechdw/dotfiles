@@ -78,7 +78,6 @@
               pkgs.tokei
               pkgs.vim
               pkgs.wezterm
-              pkgs.ssm-session-manager-plugin
               pkgs.zoxide
             ];
             variables = {
@@ -157,7 +156,6 @@
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
                     ".config/karabiner/karabiner.json".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
-                    ".config/opencode".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/opencode";
                     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/nvim";
                     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/wezterm";
                   };
@@ -168,18 +166,16 @@
             enable = true;
             brews = [
               "mas"
-              "sst/homebrew-tap/opencode"
             ];
             casks = [
               "dbeaver-community"
               "discord"
               "firefox"
               "google-chrome"
-              "google-cloud-sdk"
+              "gcloud-cli"
               "karabiner-elements"
               "libreoffice"
               "logitune"
-              "slack"
               "spotify"
             ];
             onActivation = {
@@ -205,7 +201,6 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
-                "sst/homebrew-tap" = sst-homebrew-tap;
               };
             };
           }
