@@ -1,5 +1,6 @@
 require("conform").setup({
   formatters_by_ft = {
+    c = { "clang-format" },
     cmake = { "cmake_format" },
     css = { "prettierd" },
     go = { "goimports", "gofumpt" },
@@ -8,6 +9,7 @@ require("conform").setup({
     javascriptreact = { "eslint_d", "prettierd" },
     json = { "prettierd" },
     jsonc = { "prettierd" },
+    terraform = { "tofu_fmt" },
     typescript = { "eslint_d", "prettierd" },
     typescriptreact = { "eslint_d", "prettierd" },
     lua = { "stylua" },

@@ -4,10 +4,9 @@
 local servers = {
   { "bashls", "bash-language-server" },
   "biome",
+  "clangd",
   { "cssls", "vscode-css-language-server" },
   { "docker_language_server", "docker-language-server" },
-  -- { "docker_compose_language_service", "docker-compose-langserver" },
-  -- { "dockerls", "docker-langserver" },
   { "eslint", "vscode-eslint-language-server" },
   "gopls",
   { "html", "vscode-html-language-server" },

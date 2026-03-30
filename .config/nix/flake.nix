@@ -24,10 +24,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    sst-homebrew-tap = {
-      url = "github:sst/homebrew-tap";
-      flake = false;
-    };
   };
 
   outputs =
@@ -39,7 +35,6 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
-      sst-homebrew-tap,
       ...
     }:
     let
@@ -76,6 +71,7 @@
               pkgs.ripgrep
               pkgs.starship
               pkgs.tokei
+              pkgs.tree-sitter
               pkgs.vim
               pkgs.wezterm
               pkgs.zoxide
@@ -130,7 +126,6 @@
                 InitialKeyRepeat = 15;
                 NSAutomaticSpellingCorrectionEnabled = false;
               };
-              universalaccess.reduceMotion = true;
             };
           };
 
@@ -165,6 +160,7 @@
           homebrew = {
             enable = true;
             brews = [
+              "cloud-sql-proxy"
               "mas"
             ];
             casks = [
