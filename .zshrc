@@ -1,5 +1,6 @@
 # shellcheck disable=all
 alias cd="z"
+alias claude="SHELL=/bin/bash claude"
 alias ls="ls -lah --color=auto"
 alias lzg="lazygit"
 alias vim="nvim"
