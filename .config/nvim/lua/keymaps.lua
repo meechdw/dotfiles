@@ -3,7 +3,9 @@ local opts = require("opts")
 vim.keymap.set("n", "<leader>j", "<C-^>", opts)
 vim.keymap.set("v", "<leader>p", '"_dP', opts)
 vim.keymap.set({ "n", "v" }, "<leader>/", "<cmd>noh<cr>", opts)
-vim.keymap.set("t", "<C-ESC>", "<C-\\><C-n>", opts)
+
+vim.keymap.set({ "n", "v" }, "H", "0", opts)
+vim.keymap.set({ "n", "v" }, "L", "$", opts)
 
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)

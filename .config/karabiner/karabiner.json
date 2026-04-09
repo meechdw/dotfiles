@@ -348,7 +348,7 @@
             ]
           },
           {
-            "description": "Map right_command + space to space",
+            "description": "Map right_command + space to backspace",
             "manipulators": [
               {
                 "from": {
@@ -359,7 +359,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "spacebar"
+                    "key_code": "delete_or_backspace"
                   }
                 ],
                 "type": "basic"
@@ -421,25 +421,6 @@
                 "to": [
                   {
                     "key_code": "right_arrow"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map left_control + space to backspace",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "mandatory": ["left_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
                   }
                 ],
                 "type": "basic"

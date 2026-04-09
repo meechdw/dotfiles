@@ -1,8 +1,3 @@
-alias b := brew_update
-alias p := pack_uninstall_all
-alias n := nix_update
-alias r := rebuild
-
 default:
     just --list
 

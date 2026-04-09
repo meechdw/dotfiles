@@ -20,6 +20,7 @@ autoload -Uz _zinit
 zinit ice depth=1; zinit light zsh-users/zsh-syntax-highlighting
 zinit ice depth=1; zinit light zsh-users/zsh-autosuggestions
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+zvm_after_init() { bindkey '^a' autosuggest-accept }
 
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY

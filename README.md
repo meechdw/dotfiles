@@ -28,8 +28,8 @@ run the bootstrap script:
 curl -fsSL https://raw.githubusercontent.com/meechdw/dotfiles/main/bootstrap.sh | bash
 ```
 
-Give full disk access to the [WezTerm](https://wezterm.org): `System Settings` >
-`Privacy & Security` > `Full Disk Access`.
+Give full disk access to the [Ghostty](https://ghostty.org/):
+`System Settings` > `Privacy & Security` > `Full Disk Access`.
 
 Manually configure the following settings:
 

@@ -1,7 +1,6 @@
 require("blink.cmp").setup({
   fuzzy = { implementation = "lua" },
   keymap = {
-    preset = "super-tab",
     ["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
   },
   sources = {

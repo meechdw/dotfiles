@@ -98,6 +98,15 @@ local withMaxWidth = function(fn, max_width)
   end
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "zls" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
+})
+
 vim.keymap.set("n", "<leader>r", "<cmd>LspRestart<cr>")
 vim.keymap.set("n", "<leader>k", withMaxWidth(vim.lsp.buf.hover, 100), opts)
 vim.keymap.set("n", "<leader>ld", withMaxWidth(vim.lsp.buf.definition, 100), opts)

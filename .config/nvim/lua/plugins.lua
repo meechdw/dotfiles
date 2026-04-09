@@ -1,16 +1,17 @@
 vim.pack.add({
+  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+  "https://github.com/coder/claudecode.nvim",
   "https://github.com/saghen/blink.cmp",
-  "https://github.com/sainnhe/gruvbox-material",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/folke/flash.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/echasnovski/mini.icons",
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/neovim/nvim-lspconfig",
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/tpope/vim-fugitive",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/supermaven-inc/supermaven-nvim",
-  "https://github.com/NickvanDyke/opencode.nvim",
   "https://github.com/stevearc/oil.nvim",
 })
 

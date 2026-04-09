@@ -1,0 +1,13 @@
+font-family = GeistMono Nerd Font
+font-size = 16
+font-style = Medium
+theme = Catppuccin Macchiato
+cursor-style-blink = false
+mouse-hide-while-typing = true
+window-padding-x = 6
+window-padding-y = 6
+window-padding-balance = true
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+keybind = cmd+k=text:\x0c
