@@ -1,17 +1,8 @@
-require("catppuccin").setup({
-  flavour = "macchiato",
-  float = { transparent = true },
-  no_italic = true,
-  no_bold = true,
-  no_underline = true,
-  custom_highlights = function(colors)
-    return {
-      WinSeparator = { fg = colors.overlay0 },
-      VertSplit = { fg = colors.overlay0 },
-      BlinkCmpMenuBorder = { link = "FloatBorder" },
-      BlinkCmpMenu = { link = "Normal" },
-    }
-  end,
-})
+vim.g.everforest_better_performance = 1
+vim.g.everforest_background = "hard"
+vim.g.everforest_disable_italic_comment = 1
+vim.g.everforest_float_style = "blend"
+vim.g.everforest_pmenu_style = "blend"
+vim.g.everforest_diagnostic_virtual_text = "colored"
 
-vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme everforest")

@@ -65,9 +65,7 @@
               pkgs.git-lfs
               pkgs.jq
               pkgs.lazygit
-              pkgs.ngrok
               pkgs.neovim
-              pkgs.raycast
               pkgs.ripgrep
               pkgs.sesh
               pkgs.starship
@@ -80,14 +78,14 @@
               EDITOR = "nvim";
               DIRENV_WARN_TIMEOUT = "1m";
               FZF_DEFAULT_OPTS = ''
-                --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
-                --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
-                --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
-                --color=selected-bg:#494d64 \
-                --color=border:#6e738d,label:#cad3f5
+                --color=bg+:#414b50,bg:#272e33,spinner:#a7c080,hl:#e67e80 \
+                --color=fg:#d3c6aa,header:#e67e80,info:#d699b6,pointer:#a7c080 \
+                --color=marker:#a7c080,fg+:#d3c6aa,prompt:#d699b6,hl+:#e67e80 \
+                --color=selected-bg:#4c3743 \
+                --color=border:#859289,label:#d3c6aa
               '';
-              ZVM_VI_HIGHLIGHT_BACKGROUND = "#45403d";
-              ZVM_VI_HIGHLIGHT_FOREGROUND = "#d4be98";
+              ZVM_VI_HIGHLIGHT_BACKGROUND = "#4c3743";
+              ZVM_VI_HIGHLIGHT_FOREGROUND = "#d3c6aa";
             };
             extraInit = ''
               export PATH="$HOME/.local/bin:$PATH"
@@ -148,43 +146,25 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.mitchell =
-              { config, pkgs, ... }:
+              { config, ... }:
               {
                 home.stateVersion = "25.05";
 
                 programs.tmux = {
                   enable = true;
-                  plugins = [
-                    {
-                      plugin = pkgs.tmuxPlugins.catppuccin;
-                      extraConfig = ''
-                        set -g @catppuccin_flavor "macchiato"
-                        set -g @catppuccin_window_default_text " #W"
-                        set -g @catppuccin_window_text " #W"
-                        set -g @catppuccin_window_current_text " #W"
-                        set -g @catppuccin_status_left_separator ""
-                        set -g status-left ""
-                      '';
-                    }
-                  ];
                   extraConfig = ''
                     set -g prefix C-Space
                     unbind C-b
                     bind C-Space send-prefix
-
                     set -g default-terminal "tmux-256color"
                     set -ag terminal-overrides ",xterm-256color:RGB"
-
                     set -g status-position top
                     set -g renumber-windows on
                     set -g automatic-rename on
-
                     set -g mouse on
                     set -s copy-command "pbcopy"
-
                     bind-key x kill-pane
                     set -g detach-on-destroy off
-
                     bind-key "T" run-shell "sesh connect \"$(
                       sesh list --icons | fzf-tmux -p 80%,70% \
                         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
@@ -199,9 +179,21 @@
                         --preview-window 'right:55%' \
                         --preview 'sesh preview {}'
                     )\""
-
                     bind -N "last-session (via sesh) " L run-shell "sesh last"
                     bind w display-popup -E "tmux list-windows -F '#{window_index}: #{window_name}' | fzf | awk '{print \$1}' | tr -d ':' | xargs tmux select-window -t"
+
+                    set -g status-style "bg=#2e383c,fg=#d3c6aa"
+                    set -g status-left-length 40
+                    set -g status-right-length 80
+                    set -g status-left "#[bg=#a7c080,fg=#272e33,bold] #S "
+                    set -g status-right "#[fg=#859289]%Y-%m-%d %H:%M #[bg=#7fbbb3,fg=#272e33,bold] #(whoami) "
+                    set -g window-status-format "#[bg=#2e383c,fg=#859289] #I:#W "
+                    set -g window-status-current-format "#[bg=#414b50,fg=#9da9a0,bold] #I:#W "
+                    set -g window-status-separator ""
+                    set -g pane-border-style "fg=#414b50"
+                    set -g pane-active-border-style "fg=#a7c080"
+                    set -g message-style "bg=#414b50,fg=#d3c6aa"
+                    set -g mode-style "bg=#4c3743,fg=#d3c6aa"
                   '';
                 };
 
@@ -215,8 +207,6 @@
                     ".config/git".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/git";
                     ".config/starship.toml".source =
                       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/starship.toml";
-                    ".config/karabiner/karabiner.json".source =
-                      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/karabiner/karabiner.json";
                     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/nvim";
                   };
               };
@@ -225,7 +215,6 @@
           homebrew = {
             enable = true;
             brews = [
-              "cloud-sql-proxy"
               "mas"
             ];
             casks = [
@@ -234,10 +223,6 @@
               "discord"
               "firefox"
               "google-chrome"
-              "gcloud-cli"
-              "karabiner-elements"
-              "libreoffice"
-              "logitune"
               "spotify"
             ];
             onActivation = {

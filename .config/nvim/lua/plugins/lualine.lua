@@ -12,19 +12,15 @@ end
 
 require("lualine").setup({
   options = {
+    theme = "everforest",
     component_separators = "",
     section_separators = "",
   },
   sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {
-      { "mode", color = { gui = "bold" } },
-      "branch",
-      { "filename", path = 1 },
-    },
-    lualine_x = { "searchcount", get_lsp_status, "location" },
-    lualine_y = {},
-    lualine_z = {},
+    lualine_b = { "branch" },
+    lualine_c = { { "filename", path = 1 } },
+    lualine_x = { "diagnostics", get_lsp_status, "encoding" },
+    lualine_y = { "filetype" },
+    lualine_z = { "location" },
   },
 })
